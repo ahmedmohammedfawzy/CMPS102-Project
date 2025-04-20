@@ -205,8 +205,10 @@ void Output::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) co
 	
 }
 
-void Output::Drawsqre(Point P1, Point P2, GfxInfo sqreGfxInfo, bool selected) const
+void Output::Drawsqre(Point P1, GfxInfo sqreGfxInfo, bool selected) const
 {
+	const int SQUARE_SIZE = 200;
+
 	color DrawingClr;
 	if (selected)
 		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
@@ -224,7 +226,7 @@ void Output::Drawsqre(Point P1, Point P2, GfxInfo sqreGfxInfo, bool selected) co
 		style = FRAME;
 
 
-	pWind->DrawRectangle(P1.x, P1.y, P2.x, P1.y+(P2.x-P1.x), style);
+	pWind->DrawRectangle(P1.x - (SQUARE_SIZE/2), P1.y - (SQUARE_SIZE / 2), P1.x + (SQUARE_SIZE / 2), P1.y + (SQUARE_SIZE / 2), style);
 
 }
 void Output::DrawTri(Point P1, Point P2,Point P3, GfxInfo TriGfxInfo, bool selected) const

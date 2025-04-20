@@ -87,35 +87,33 @@ int main()
 	pOut->PrintMessage("Drawing a Square, normal and Highlighted, Click to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
 
-	pOut->PrintMessage("Drawing a square ==> non-filled,  Click two points");
+	pOut->PrintMessage("Drawing a square ==> non-filled,  Click once");
 	pIn->GetPointClicked(P1.x, P1.y);
-	pIn->GetPointClicked(P2.x, P2.y);
 
 	gfxInfo.BorderWdth = 5;
 	gfxInfo.DrawClr = BLACK;	//any color for border
 	gfxInfo.isFilled = false;	//Figure is NOT filled
-	pOut->Drawsqre(P1, P2, gfxInfo, false);
+	pOut->Drawsqre(P1, gfxInfo, false);
 
 	pOut->PrintMessage("Drawing a square ==> Highlighted non-filled, Click to Highlight");
 	pIn->GetPointClicked(x, y);	//Wait for any click
-	pOut->Drawsqre(P1, P2, gfxInfo, true);
+	pOut->Drawsqre(P1, gfxInfo, true);
 
 	pOut->PrintMessage("Drawing a Square Test ==> OK,  Click anywhere to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
 
-	pOut->PrintMessage("Drawing a square ==> filled,  Click two points");
+	pOut->PrintMessage("Drawing a square ==> filled,  Click once");
 	pIn->GetPointClicked(P1.x, P1.y);
-	pIn->GetPointClicked(P2.x, P2.y);
 
 	gfxInfo.BorderWdth = 6;
 	gfxInfo.DrawClr = BLUE;	//any color for border
 	gfxInfo.FillClr = GREEN;//any color for filling
 	gfxInfo.isFilled = true;//Figure is filled
-	pOut->Drawsqre(P1, P2, gfxInfo, false);
+	pOut->Drawsqre(P1, gfxInfo, false);
 
 	pOut->PrintMessage("Drawing a square ==> Highlighted filled, Click to Highlight");
 	pIn->GetPointClicked(x, y);	//Wait for any click
-	pOut->Drawsqre(P1, P2, gfxInfo, true);
+	pOut->Drawsqre(P1, gfxInfo, true);
 
 
 
