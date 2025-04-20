@@ -7,14 +7,31 @@
 enum ActionType //The actions supported (you can add more if needed)
 {
 	DRAW_RECT,		//Draw Rectangle
+	DRAW_SQUA,
+	DRAW_TRI,
+	DRAW_CIRC,
+	DRAW_HEX,
+
+	SELECT,
+	SWAP,
+	ROTATE,
+	DEL,
+	CLEAR,
+	COPY,
+	CUT,
+	PASTE,
+	SAVE_GRAPH,
+	LOAD_GRAPH,
+
+	PLAY_MISSING_SHAPES,
+	PLAY_MISSING_PAIRS,
+
 	EXIT,			//Exit
 	TO_DRAW,		//Switch interface to Draw mode
 	TO_PLAY,		//Switch interface to Play mode
 	EMPTY,			//A click on empty place in the toolbar
 	DRAWING_AREA,	//A click on the drawing area
 	STATUS			//A click on the status bar
-
-	///TODO: Add the other action types of the two modes
 };
 
 struct Point	//To be used for figures points

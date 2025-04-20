@@ -102,7 +102,6 @@ int main()
 
 	pOut->PrintMessage("Drawing a Square Test ==> OK,  Click anywhere to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
-	pOut->ClearDrawArea();
 
 	pOut->PrintMessage("Drawing a square ==> filled,  Click two points");
 	pIn->GetPointClicked(P1.x, P1.y);
@@ -147,7 +146,7 @@ int main()
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->ClearDrawArea();
 
-	pOut->PrintMessage("Drawing a Triangle ==> filled,  Click two points");
+	pOut->PrintMessage("Drawing a Triangle ==> filled,  Click three points");
 	pIn->GetPointClicked(P1.x, P1.y);
 	pIn->GetPointClicked(P2.x, P2.y);
 	pIn->GetPointClicked(P3.x, P3.y);
@@ -215,8 +214,6 @@ int main()
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->DrawCircle(P1, P2, gfxInfo, true);
 
-	///TODO: Add code to draw Circle in all possible states
-
 	pOut->PrintMessage("Drawing a Circle Test ==> OK,  Click anywhere to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -246,9 +243,6 @@ int main()
 
 	ActionType ActType;
 	
-	///TODO:  
-	//You must add a case for each action (both Draw mode and Play mode actions)
-	//Add cases for the missing actions below
 	do
 	{
 		ActType = pIn->GetUserAction();
@@ -256,38 +250,102 @@ int main()
 		switch (ActType)
 		{
 		case DRAW_RECT:
-				pOut->PrintMessage("Action: Draw a Rectangle , Click anywhere");
-				break;
+			pOut->PrintMessage("Action: Draw a Rectangle, Click anywhere");
+			break;
+
+		case DRAW_SQUA:
+			pOut->PrintMessage("Action: Draw a Square, Click anywhere");
+			break;
+
+		case DRAW_TRI:
+			pOut->PrintMessage("Action: Draw a Triangle, Click anywhere");
+			break;
+
+		case DRAW_CIRC:
+			pOut->PrintMessage("Action: Draw a Circle, Click anywhere");
+			break;
+
+		case DRAW_HEX:
+			pOut->PrintMessage("Action: Draw a Hexagon, Click anywhere");
+			break;
+
+		case SELECT:
+			pOut->PrintMessage("Action: Select a shape");
+			break;
+
+		case SWAP:
+			pOut->PrintMessage("Action: Swap two shapes");
+			break;
+
+		case ROTATE:
+			pOut->PrintMessage("Action: Rotate a shape");
+			break;
+
+		case DEL:
+			pOut->PrintMessage("Action: Delete a shape");
+			break;
+
+		case CLEAR:
+			pOut->PrintMessage("Action: Clear all shapes");
+			break;
+
+		case COPY:
+			pOut->PrintMessage("Action: Copy a shape");
+			break;
+
+		case CUT:
+			pOut->PrintMessage("Action: Cut a shape");
+			break;
+
+		case PASTE:
+			pOut->PrintMessage("Action: Paste a shape");
+			break;
+
+		case SAVE_GRAPH:
+			pOut->PrintMessage("Action: Save the graph to file");
+			break;
+
+		case LOAD_GRAPH:
+			pOut->PrintMessage("Action: Load a graph from file");
+			break;
+
+		case PLAY_MISSING_SHAPES:
+			pOut->PrintMessage("Action: Play - Find missing shapes game");
+			break;
+
+		case PLAY_MISSING_PAIRS:
+			pOut->PrintMessage("Action: Play - Find missing pairs game");
+			break;
 
 		case STATUS:
-				pOut->PrintMessage("Action: a click on the Status Bar, Click anywhere");
-				break;
- 
+			pOut->PrintMessage("Action: A click on the Status Bar, Click anywhere");
+			break;
+
 		case DRAWING_AREA:
-				pOut->PrintMessage("Action: a click on the Drawing Area, Click anywhere");
-				break;
+			pOut->PrintMessage("Action: A click on the Drawing Area, Click anywhere");
+			break;
 
 		case EMPTY:
-				pOut->PrintMessage("Action: a click on empty area in the Design Tool Bar, Click anywhere");
-				break;
+			pOut->PrintMessage("Action: A click on empty area in the Design Tool Bar, Click anywhere");
+			break;
 
 		case TO_DRAW:
-				pOut->PrintMessage("Action: Switch to Draw Mode, creating simualtion tool bar");
-				pOut->CreateDrawToolBar();
-				break;
+			pOut->PrintMessage("Action: Switch to Draw Mode, creating Design toolbar");
+			pOut->ClearToolBar();
+			pOut->CreateDrawToolBar();
+			break;
 
 		case TO_PLAY:
-				pOut->PrintMessage("Action: Switch to Play Mode, creating Design tool bar");
-				pOut->CreatePlayToolBar();
-				break;
+			pOut->PrintMessage("Action: Switch to Play Mode, creating Play toolbar");
+			pOut->ClearToolBar();
+			pOut->CreatePlayToolBar();
+			break;
 
-
-		///TODO: Add more cases for the other action types
-
-
-		case EXIT:				
-				break;
+		case EXIT:
+			// No message needed; exit condition
+			break;
 		}
+
 	}while(ActType != EXIT);
 
 
