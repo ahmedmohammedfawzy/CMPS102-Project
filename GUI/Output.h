@@ -24,6 +24,7 @@ public:
 	void Drawsqre(Point P1, GfxInfo sqreGfxInfo, bool selected = false) const;
 	void Output::DrawTri(Point P1, Point P2,Point P3, GfxInfo sqreGfxInfo, bool selected= false) const;
 	void DrawCircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected = false) const;
+	void DrawHexagon(Point P1, GfxInfo gfxInfo, bool selected = false) const;
 	
 	///Make similar functions for drawing all other figure types.
 	

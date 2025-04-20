@@ -99,9 +99,6 @@ int main()
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->Drawsqre(P1, gfxInfo, true);
 
-	pOut->PrintMessage("Drawing a Square Test ==> OK,  Click anywhere to continue");
-	pIn->GetPointClicked(x,y);	//Wait for any click
-
 	pOut->PrintMessage("Drawing a square ==> filled,  Click once");
 	pIn->GetPointClicked(P1.x, P1.y);
 
@@ -140,10 +137,6 @@ int main()
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->DrawTri(P1, P2,P3, gfxInfo, true);
 
-	pOut->PrintMessage("Drawing a Triangle Test ==> OK,  Click anywhere to continue");
-	pIn->GetPointClicked(x, y);	//Wait for any click
-	pOut->ClearDrawArea();
-
 	pOut->PrintMessage("Drawing a Triangle ==> filled,  Click three points");
 	pIn->GetPointClicked(P1.x, P1.y);
 	pIn->GetPointClicked(P2.x, P2.y);
@@ -170,7 +163,30 @@ int main()
 	pOut->PrintMessage("Drawing a Hexagon, filled/non-filled and Highlighted filled/non-filled,  Click to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
 
-	///TODO: Add code to draw Hexagon in all possible states
+	pOut->PrintMessage("Drawing a Hexagon ==> non-filled,  Click once");
+	pIn->GetPointClicked(P1.x, P1.y);
+
+	gfxInfo.BorderWdth = 5;
+	gfxInfo.DrawClr = BLACK;	//any color for border
+	gfxInfo.isFilled = false;	//Figure is NOT filled
+	pOut->DrawHexagon(P1, gfxInfo, false);
+
+	pOut->PrintMessage("Drawing a Hexagon ==> Highlighted non-filled, Click to Highlight");
+	pIn->GetPointClicked(x, y);	//Wait for any click
+	pOut->DrawHexagon(P1, gfxInfo, true);
+
+	pOut->PrintMessage("Drawing a Hexagon ==> filled,  Click once");
+	pIn->GetPointClicked(P1.x, P1.y);
+
+	gfxInfo.BorderWdth = 6;
+	gfxInfo.DrawClr = BLUE;	//any color for border
+	gfxInfo.FillClr = GREEN;//any color for filling
+	gfxInfo.isFilled = true;//Figure is filled
+	pOut->DrawHexagon(P1, gfxInfo, false);
+
+	pOut->PrintMessage("Drawing a Hexagon ==> Highlighted filled, Click to Highlight");
+	pIn->GetPointClicked(x, y);	//Wait for any click
+	pOut->DrawHexagon(P1, gfxInfo, true);
 
 	pOut->PrintMessage("Drawing a Hexagon Test ==> OK,  Click anywhere to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click

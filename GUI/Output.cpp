@@ -271,6 +271,39 @@ void Output::DrawCircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected
 
 	pWind->DrawCircle(P1.x, P1.y, sqrt(pow(P2.x-P1.x, 2) + pow(P2.y-P1.y, 2)), style);
 }
+
+void Output::DrawHexagon(Point P1, GfxInfo gfxInfo, bool selected) const
+{
+	const int HEXAGON_SIZE = 200;
+
+	color DrawingClr;
+	if (selected)
+		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
+	else
+		DrawingClr = gfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, 1);
+	drawstyle style;
+	if (gfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(gfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	int xVertices[] = { HEXAGON_SIZE, (HEXAGON_SIZE/2), -(HEXAGON_SIZE/2) , -HEXAGON_SIZE, -(HEXAGON_SIZE / 2), (HEXAGON_SIZE / 2) };
+	int yVertices[] = { 0, (sqrt(3)/2)*HEXAGON_SIZE,(sqrt(3) / 2) * HEXAGON_SIZE, 0,-(sqrt(3) / 2) * HEXAGON_SIZE, -(sqrt(3) / 2) * HEXAGON_SIZE };
+
+	for (int i = 0; i < 6; i++)
+	{
+		xVertices[i] += P1.x;
+		yVertices[i] += P1.y;
+	}
+
+	pWind->DrawPolygon(xVertices, yVertices, 6, style);
+
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 Output::~Output()
 {
