@@ -3,6 +3,35 @@
 
 //This is a test code to test the Input and Output classes
 
+color PromptColor(Output* pOut, Input* pIn) 
+{
+	int x, y;
+	pOut->PrintMessage("Please select a color (1 => red, 2 => blue, 3=> white), Click to continue");
+	pIn->GetPointClicked(x, y);	//Wait for any click
+
+	pOut->PrintMessage("Enter: ");
+	string str = pIn->GetSrting(pOut);
+	pOut->ClearStatusBar();
+	try {
+		switch (stoi(str))
+		{
+		case 1:
+			return RED;
+		case 2:
+			return BLUE;
+		case 3:
+			return WHITE;
+		default:
+			return GREEN;
+		}
+	} 
+	catch(exception)
+	{
+		return GREEN;
+	}
+
+}
+
 int main()
 {
 	int x, y;
@@ -37,6 +66,7 @@ int main()
 
 	GfxInfo gfxInfo;//to be used with draw function of the class Ouput
 	Point P1, P2,P3;
+	color col;
 
 	/// 2.1- Rectangle Test ///
 	/// =================== 
@@ -58,6 +88,7 @@ int main()
 	pIn->GetPointClicked(x,y);	//Wait for any click
 	pOut->DrawRect(P1, P2, gfxInfo, true);
 
+	col = PromptColor(pOut, pIn);
 
 	// 2.1.3 - Drawing a filled rectangle
 	pOut->PrintMessage("Drawing a Rectangle ==> filled,  Click two points");
@@ -66,7 +97,7 @@ int main()
 
 	gfxInfo.BorderWdth = 6;
 	gfxInfo.DrawClr = BLUE;	//any color for border
-	gfxInfo.FillClr = GREEN;//any color for filling
+	gfxInfo.FillClr = col;//any color for filling
 	gfxInfo.isFilled = true;//Figure is filled
 	pOut->DrawRect(P1, P2, gfxInfo, false);
 
@@ -99,12 +130,14 @@ int main()
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->Drawsqre(P1, gfxInfo, true);
 
+	col = PromptColor(pOut, pIn);
+
 	pOut->PrintMessage("Drawing a square ==> filled,  Click once");
 	pIn->GetPointClicked(P1.x, P1.y);
 
 	gfxInfo.BorderWdth = 6;
 	gfxInfo.DrawClr = BLUE;	//any color for border
-	gfxInfo.FillClr = GREEN;//any color for filling
+	gfxInfo.FillClr = col;//any color for filling
 	gfxInfo.isFilled = true;//Figure is filled
 	pOut->Drawsqre(P1, gfxInfo, false);
 
@@ -137,6 +170,8 @@ int main()
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->DrawTri(P1, P2,P3, gfxInfo, true);
 
+	col = PromptColor(pOut, pIn);
+
 	pOut->PrintMessage("Drawing a Triangle ==> filled,  Click three points");
 	pIn->GetPointClicked(P1.x, P1.y);
 	pIn->GetPointClicked(P2.x, P2.y);
@@ -144,7 +179,7 @@ int main()
 
 	gfxInfo.BorderWdth = 6;
 	gfxInfo.DrawClr = BLUE;	//any color for border
-	gfxInfo.FillClr = GREEN;//any color for filling
+	gfxInfo.FillClr = col;//any color for filling
 	gfxInfo.isFilled = true;//Figure is filled
 	pOut->DrawTri(P1, P2, P3 , gfxInfo , false); 
 
@@ -175,12 +210,14 @@ int main()
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->DrawHexagon(P1, gfxInfo, true);
 
+	col = PromptColor(pOut, pIn);
+
 	pOut->PrintMessage("Drawing a Hexagon ==> filled,  Click once");
 	pIn->GetPointClicked(P1.x, P1.y);
 
 	gfxInfo.BorderWdth = 6;
 	gfxInfo.DrawClr = BLUE;	//any color for border
-	gfxInfo.FillClr = GREEN;//any color for filling
+	gfxInfo.FillClr = col;//any color for filling
 	gfxInfo.isFilled = true;//Figure is filled
 	pOut->DrawHexagon(P1, gfxInfo, false);
 
@@ -214,13 +251,15 @@ int main()
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->ClearDrawArea();
 
+	col = PromptColor(pOut, pIn);
+
 	pOut->PrintMessage("Drawing a Circle ==> filled,  Click two points");
 	pIn->GetPointClicked(P1.x, P1.y);
 	pIn->GetPointClicked(P2.x, P2.y);
 
 	gfxInfo.BorderWdth = 6;
 	gfxInfo.DrawClr = BLUE;	//any color for border
-	gfxInfo.FillClr = GREEN;//any color for filling
+	gfxInfo.FillClr = col;//any color for filling
 	gfxInfo.isFilled = true;//Figure is filled
 	pOut->DrawCircle(P1, P2, gfxInfo, false);
 
