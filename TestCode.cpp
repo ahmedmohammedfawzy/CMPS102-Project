@@ -249,7 +249,6 @@ int main()
 
 	pOut->PrintMessage("Drawing a Circle Test ==> OK,  Click anywhere to continue");
 	pIn->GetPointClicked(x, y);	//Wait for any click
-	pOut->ClearDrawArea();
 
 	col = PromptColor(pOut, pIn);
 
