@@ -1,6 +1,4 @@
-#ifndef ADD_RECT_ACTION_H
-#define ADD_RECT_ACTION_H
-
+#pragma once
 #include "Actions/Action.h"
 
 class AddSquareAction : public Action
@@ -16,5 +14,3 @@ public:
 
 	virtual void Execute();
 };
-
-#endif

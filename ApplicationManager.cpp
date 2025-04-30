@@ -38,7 +38,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddRectAction(this);
 			break;
 
-		case DRAW_SQUARE:
+		case DRAW_SQUA:
 			pAct = new AddSquareAction(this);
 			break;
 
