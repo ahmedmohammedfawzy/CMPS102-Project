@@ -17,16 +17,11 @@ public:
 	Input* CreateInput() const; //creates a pointer to the Input object	
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
-	void ClearToolBar() const;
 	
 	// -- Figures Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected=false) const;  //Draw a rectangle
-	void Drawsqre(Point P1, GfxInfo sqreGfxInfo, bool selected = false) const;
-	void Output::DrawTri(Point P1, Point P2,Point P3, GfxInfo sqreGfxInfo, bool selected= false) const;
-	void DrawCircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected = false) const;
-	void DrawHexagon(Point P1, GfxInfo gfxInfo, bool selected = false) const;
 	
-	///Make similar functions for drawing all other figure types.
+	///TODO:Make similar functions for drawing all other figure types.
 	
 	void PrintMessage(string msg) const;	//Print a message on Status bar
 

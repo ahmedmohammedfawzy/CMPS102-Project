@@ -17,23 +17,9 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 {
 	//Note: Items are **(ordered)** here as they appear in menu
 	//If you want to change the menu items order, change the order here
-	ITM_RECT,
-	ITM_SQU,
-	ITM_TRI,
-	ITM_CIRC,
-	ITM_HEX,
-
-	ITM_SEL,
-	ITM_SWAP,
-	ITM_ROT,
-	ITM_DEL,
-	ITM_CLR,
-	ITM_CUT,
-	ITM_CPY,
-	ITM_PASTE,
-	ITM_SAVE,
-	ITM_LOAD,
-	ITM_PLAY_MODE,
+	ITM_RECT,		//Recangle item in menu
+	
+	//TODO: Add more items names here
 
 	ITM_EXIT,		//Exit item
 	
@@ -46,9 +32,7 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	//Note: Items are **(ordered)** here as they appear in menu
 	//If you want to change the menu items order, change the order here
 	
-	ITM_MISSING_PAIRS,
-	ITM_MISSING_SHAPES,
-	ITM_DRAW_MODE,
+	//TODO: Add more items names here
 
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 	
@@ -68,7 +52,6 @@ struct UI_Info	//User Interface Info.
 		wx , wy,			//Window starting coordinates
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
-		LineUnderTBWidth,	//line Under the Toolbar Pen Width
 		MenuItemWidth;		//Width of each item in toolbar menu
 	
 
