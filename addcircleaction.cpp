@@ -37,7 +37,7 @@ void AddCircleAction::Execute()
 	ReadActionParameters();
 
 	//Create a rectangle with the parameters read from the user
-	CCircle* R = new CCircle(Center, P2, CircleGfxInfo);
+	CCircle* R = new CCircle(Center, Center.GetDistance(P2), CircleGfxInfo);
 
 	//Add the rectangle to the list of figures
 	pManager->AddFigure(R);

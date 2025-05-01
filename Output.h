@@ -26,8 +26,8 @@ public:
 	void Drawsqre(Point P1, GfxInfo sqreGfxInfo, bool selected = false) const;
 	void Drawcircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected=false) const;  //Draw a circle
 	void DrawTri(Point P1, Point P2, Point P3, GfxInfo TriGfxInfo, bool selected) const;
-	void DrawCircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected) const;
-	void DrawHexagon(Point P1, GfxInfo gfxInfo, bool selected) const;
+	void DrawCircle(Point center, int radius, GfxInfo circleGfxInfo, bool selected) const;
+	void DrawHexagon(const Point* Vertices, GfxInfo gfxInfo, bool selected) const;
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
 

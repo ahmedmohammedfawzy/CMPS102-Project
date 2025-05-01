@@ -3,6 +3,8 @@
 #include "AddSquareAction.h"
 #include "AddCircleAction.h"
 #include "AddTriangleAction.h"
+#include "SelectAction.h"
+#include "AddHexagonAction.h"
 
 
 //Constructor
@@ -13,6 +15,7 @@ ApplicationManager::ApplicationManager()
 	pIn = pOut->CreateInput();
 	
 	FigCount = 0;
+	SelectedFigsCount = 0;
 		
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
@@ -50,6 +53,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		
 		case DRAW_TRI:
 			pAct = new AddTriangleAction(this);
+			break;		
+		case DRAW_HEX:
+			pAct = new AddHexagonAction(this);
+			break;
+
+		case SELECT:
+			pAct = new SelectAction(this);
 			break;
 
 		case EXIT:
@@ -82,14 +92,45 @@ void ApplicationManager::AddFigure(CFigure* pFig)
 ////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
 {
-	//If a figure is found return a pointer to it.
-	//if this point (x,y) does not belong to any figure return NULL
-
-
-	//Add your code here to search for a figure given a point x,y	
-	//Remember that ApplicationManager only calls functions do NOT implement it.
-
-	return NULL;
+	CFigure* pFig = nullptr;
+	for (int i = 0; i < FigCount; i++)
+	{
+		if (FigList[i]->IsPointInsideFig(x,y))
+		{
+			pFig = FigList[i];
+		}
+	}
+	return pFig;
+}
+void ApplicationManager::SelectFigure(CFigure* pFig)
+{
+	SelectedFigs[SelectedFigsCount] = pFig;
+	SelectedFigsCount++;
+	pFig->SetSelected(true);
+}
+void ApplicationManager::DeselectFigure(CFigure* pFig)
+{
+	for (int i = 0; i < SelectedFigsCount; i++)
+	{
+		if (SelectedFigs[i] == pFig)
+		{
+			SelectedFigs[i]->SetSelected(false);
+			for (int j = i; j < SelectedFigsCount - 1; j++)
+			{
+				SelectedFigs[j] = SelectedFigs[j + 1];
+			}
+			SelectedFigsCount--;
+			return;
+		}
+	}
+}
+void ApplicationManager::ClearSelection()
+{
+	for (int i = 0; i < SelectedFigsCount; i++)
+	{
+		SelectedFigs[i]->SetSelected(false);
+	}
+	SelectedFigsCount = 0;
 }
 //==================================================================================//
 //							Interface Management Functions							//

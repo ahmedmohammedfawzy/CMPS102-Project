@@ -1,21 +1,25 @@
 #include "CSquare.h"
 
-CSquare::CSquare(Point P, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
+CSquare::CSquare(Point c, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
-	center = P;
+	center = c;
+	Corner2.x = center.x + SQUARE_SIZE / 2;
+	Corner2.y = center.y + SQUARE_SIZE / 2;
+
+	Corner1.x = center.x - SQUARE_SIZE / 2;
+	Corner1.y = center.y - SQUARE_SIZE / 2;
+}
+
+bool CSquare::IsPointInsideFig(int x, int y)
+{
+	if (x > Corner1.x && x < Corner2.x && y > Corner1.y && y < Corner2.y)
+	{
+		return true;
+	}
+	return false;
 }
 
 void CSquare::Draw(Output* pOut) const
 {
-	int sqaureLength = 150;
-	Point P1;
-	Point P2;
-
-	P2.x = 75 + center.x;
-	P2.y = center.y + 75;
-
-	P1.x = center.x - 75;
-	P1.y = center.y - 75;
-
-	pOut->DrawRect(P1, P2, FigGfxInfo, Selected);
+	pOut->DrawRect(Corner1, Corner2, FigGfxInfo, Selected);
 }

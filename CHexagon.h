@@ -1,13 +1,12 @@
 #pragma once
 #include "CFigure.h"
-
-class CTriangle: public CFigure
+class CHexagon : public CFigure
 {
 private:
-	Point P1,P2,P3;
-
+	Point Center;
+	Point Vertices[6];
 public:
-	CTriangle(Point, Point, Point, GfxInfo);
+	CHexagon(Point, GfxInfo hexagonGfxInfo);
 	bool IsPointInsideFig(int x, int y) override;
 	void Draw(Output* pOut) const override;
 };

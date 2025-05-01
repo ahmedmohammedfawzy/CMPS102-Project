@@ -10,8 +10,7 @@ class CFigure
 protected:
 	int ID;		//Each figure has an ID
 	bool Selected;	//true if the figure is selected.
-	GfxInfo FigGfxInfo;	//Figure graphis info
-	
+	GfxInfo FigGfxInfo;	//Figure graphis info	
 	/// Add more parameters if needed.
 
 public:
@@ -25,6 +24,7 @@ public:
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
 
+	virtual bool IsPointInsideFig(int x, int y) = 0;
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 

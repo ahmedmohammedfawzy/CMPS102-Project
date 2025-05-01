@@ -245,7 +245,6 @@ void Output::Drawcircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected
 
 void Output::Drawsqre(Point P1, GfxInfo sqreGfxInfo, bool selected) const
 {
-	const int SQUARE_SIZE = 200;
 
 	color DrawingClr;
 	if (selected)
@@ -289,7 +288,7 @@ void Output::DrawTri(Point P1, Point P2, Point P3, GfxInfo TriGfxInfo, bool sele
 	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
 
 }
-void Output::DrawCircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected) const
+void Output::DrawCircle(Point center, int radius, GfxInfo circleGfxInfo, bool selected) const
 {
 	color DrawingClr;
 	if (selected)
@@ -307,12 +306,11 @@ void Output::DrawCircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected
 	else
 		style = FRAME;
 
-	pWind->DrawCircle(P1.x, P1.y, sqrt(pow(P2.x - P1.x, 2) + pow(P2.y - P1.y, 2)), style);
+	pWind->DrawCircle(center.x, center.y, radius, style);
 }
 
-void Output::DrawHexagon(Point P1, GfxInfo gfxInfo, bool selected) const
+void Output::DrawHexagon(const Point* vertices, GfxInfo gfxInfo, bool selected) const
 {
-	const int HEXAGON_SIZE = 200;
 
 	color DrawingClr;
 	if (selected)
@@ -330,13 +328,12 @@ void Output::DrawHexagon(Point P1, GfxInfo gfxInfo, bool selected) const
 	else
 		style = FRAME;
 
-	int xVertices[] = { HEXAGON_SIZE, (HEXAGON_SIZE / 2), -(HEXAGON_SIZE / 2) , -HEXAGON_SIZE, -(HEXAGON_SIZE / 2), (HEXAGON_SIZE / 2) };
-	int yVertices[] = { 0, (sqrt(3) / 2) * HEXAGON_SIZE,(sqrt(3) / 2) * HEXAGON_SIZE, 0,-(sqrt(3) / 2) * HEXAGON_SIZE, -(sqrt(3) / 2) * HEXAGON_SIZE };
-
+	int xVertices[6];
+	int yVertices[6];
 	for (int i = 0; i < 6; i++)
 	{
-		xVertices[i] += P1.x;
-		yVertices[i] += P1.y;
+		xVertices[i] = vertices[i].x;
+		yVertices[i] = vertices[i].y;
 	}
 
 	pWind->DrawPolygon(xVertices, yVertices, 6, style);

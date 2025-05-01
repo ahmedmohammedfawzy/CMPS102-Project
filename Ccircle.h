@@ -5,9 +5,10 @@ class CCircle : public CFigure
 {
 private:
 	Point Center;
-	Point P2;
+	int Radius;
 public:
-	CCircle(Point, Point, GfxInfo circleGfxInfo);
+	CCircle(Point, int, GfxInfo circleGfxInfo);
+	bool IsPointInsideFig(int x, int y) override;
 	void Draw(Output* pOut) const override;
 };
 

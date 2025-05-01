@@ -4,6 +4,10 @@
 #include "CMUgraphicsLib\CMUgraphics.h"
 
 //This file contains some global constants and definitions to be used in the project.
+
+const int HEXAGON_SIZE = 200;
+const int SQUARE_SIZE = 200;
+
 enum ActionType //The actions supported (you can add more if needed)
 {
 	DRAW_RECT,		//Draw Rectangle
@@ -37,6 +41,12 @@ enum ActionType //The actions supported (you can add more if needed)
 struct Point	//To be used for figures points
 {
 	int x, y;
+
+	float GetDistance(Point p2) 
+	{
+		float dis = sqrt(pow(p2.x - x, 2) + pow(p2.y - y, 2));
+		return dis;
+	}
 };
 
 struct GfxInfo	//Graphical info of each figure (you may add more members)
