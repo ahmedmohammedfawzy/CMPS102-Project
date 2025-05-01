@@ -20,21 +20,16 @@ public:
 	void ClearToolBar() const;
 
 	// -- Figures Drawing functions
-	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected = false) const;  //Draw a rectangle
-	void Drawsqre(Point P1, GfxInfo sqreGfxInfo, bool selected = false) const;
-	void Output::DrawTri(Point P1, Point P2, Point P3, GfxInfo sqreGfxInfo, bool selected = false) const;
-	void DrawCircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected = false) const;
-	void DrawHexagon(Point P1, GfxInfo gfxInfo, bool selected = false) const;
-
-	///Make similar functions for drawing all other figure types.
+	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected=false) const;  //Draw a rectangle
+  void Drawsqre(Point P1, GfxInfo sqreGfxInfo, bool selected = false) const;
+	void Drawcircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected=false) const;  //Draw a circle
+	///TODO:Make similar functions for drawing all other figure types.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
 
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
-
-
 	~Output();
 };
 
