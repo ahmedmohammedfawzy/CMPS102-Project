@@ -51,8 +51,24 @@ ActionType Input::GetUserAction() const
 
 			switch (ClickedItemOrder)
 			{
-			case ITM_RECT: return DRAW_RECT;
-			case ITM_EXIT: return EXIT;	
+			case ITM_RECT:		return DRAW_RECT;
+			case ITM_SQU:       return DRAW_SQUA;
+			case ITM_TRI:       return DRAW_TRI;
+			case ITM_CIRC:      return DRAW_CIRC;
+			case ITM_HEX:       return DRAW_HEX;
+
+			case ITM_SEL:       return SELECT;
+			case ITM_SWAP:      return SWAP;
+			case ITM_ROT:       return ROTATE;
+			case ITM_DEL:       return DEL;
+			case ITM_CLR:       return CLEAR;
+			case ITM_CUT:       return CUT;
+			case ITM_CPY:       return COPY;
+			case ITM_PASTE:     return PASTE;
+			case ITM_SAVE:      return SAVE_GRAPH;
+			case ITM_LOAD:      return LOAD_GRAPH;
+			case ITM_PLAY_MODE: return TO_PLAY;
+			case ITM_EXIT:      return EXIT;
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
