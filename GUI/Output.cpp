@@ -161,6 +161,29 @@ void Output::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) co
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 	
 }
+void Output::Drawcircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected) const
+{
+	color DrawingClr;
+	if (selected)
+		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
+	else
+		DrawingClr = circleGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, 1);
+	drawstyle style;
+	if (circleGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(circleGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	float RR = (((P1.x - P2.x) ^ 2) + ((P1.y - P2.y) ^ 2)) ^ (1 / 2);
+	pWind->DrawCircle(P1.x, P1.y, RR , style);
+
+}
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
