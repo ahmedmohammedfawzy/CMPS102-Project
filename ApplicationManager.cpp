@@ -2,6 +2,7 @@
 #include "AddRectAction.h"
 #include "AddSquareAction.h"
 #include "AddCircleAction.h"
+#include "AddTriangleAction.h"
 
 
 //Constructor
@@ -45,6 +46,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case DRAW_CIRC:
 			pAct = new AddCircleAction(this);
+			break;		
+		
+		case DRAW_TRI:
+			pAct = new AddTriangleAction(this);
 			break;
 
 		case EXIT:
@@ -95,6 +100,9 @@ void ApplicationManager::UpdateInterface() const
 {	
 	for(int i=0; i<FigCount; i++)
 		FigList[i]->Draw(pOut);		//Call Draw function (virtual member fn)
+
+	pOut->RedrawToolBar();
+	pOut->ClearStatusBar();
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the input

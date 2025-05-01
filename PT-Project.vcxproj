@@ -131,6 +131,7 @@
     <ClCompile Include="AddCircleAction.cpp" />
     <ClCompile Include="AddRectAction.cpp" />
     <ClCompile Include="AddSquareAction.cpp" />
+    <ClCompile Include="AddTriangleAction.cpp" />
     <ClCompile Include="CCircle.cpp" />
     <ClCompile Include="CFigure.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
@@ -172,6 +173,7 @@
     <ClCompile Include="CRectangle.cpp" />
     <ClCompile Include="CSquare.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
+    <ClCompile Include="CTriangle.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Output.cpp" />
@@ -181,6 +183,7 @@
     <ClInclude Include="AddCircleAction.h" />
     <ClInclude Include="AddRectAction.h" />
     <ClInclude Include="AddSquareAction.h" />
+    <ClInclude Include="AddTriangleAction.h" />
     <ClInclude Include="CCircle.h" />
     <ClInclude Include="CFigure.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -206,6 +209,7 @@
     <ClInclude Include="CRectangle.h" />
     <ClInclude Include="CSquare.h" />
     <ClInclude Include="ApplicationManager.h" />
+    <ClInclude Include="CTriangle.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Output.h" />

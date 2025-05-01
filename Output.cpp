@@ -146,6 +146,15 @@ void Output::ClearToolBar() const
 	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
 }
 
+void Output::RedrawToolBar() const
+{
+	ClearToolBar();
+	if (UI.InterfaceMode == MODE_DRAW)
+		CreateDrawToolBar();
+	else
+		CreatePlayToolBar();
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 

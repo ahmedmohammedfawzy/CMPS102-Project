@@ -10,7 +10,7 @@ private:
 	Point Corner2;
 public:
 	CRectangle(Point , Point, GfxInfo FigureGfxInfo );
-	virtual void Draw(Output* pOut) const;
+	void Draw(Output* pOut) const override;
 };
 
 #endif

@@ -8,8 +8,8 @@ private:
 public:
 	AddCircleAction(ApplicationManager* pApp);
 
-	virtual void ReadActionParameters();
+	void ReadActionParameters() override;
 
-	virtual void Execute();
+	void Execute() override;
 };
 

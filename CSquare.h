@@ -8,7 +8,7 @@ class CSquare : public CFigure
 
 public:
 	CSquare(Point, GfxInfo FigureGfxInfo);
-	virtual void Draw(Output* pOut) const;
+	void Draw(Output* pOut) const override;
 };
 
 #endif

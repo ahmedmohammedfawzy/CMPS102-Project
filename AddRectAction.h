@@ -1,9 +1,7 @@
-#ifndef ADD_RECT_ACTION_H
-#define ADD_RECT_ACTION_H
+#pragma once
 
 #include "Action.h"
 
-//Add Rectangle Action class
 class AddRectAction: public Action
 {
 private:
@@ -12,11 +10,8 @@ private:
 public:
 	AddRectAction(ApplicationManager *pApp);
 
-	//Reads rectangle parameters
-	virtual void ReadActionParameters();
+	void ReadActionParameters() override;
 	
-	//Add rectangle to the ApplicationManager
-	virtual void Execute();
+	void Execute() override;
 };
 
-#endif

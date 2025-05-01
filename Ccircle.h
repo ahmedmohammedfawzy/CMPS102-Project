@@ -8,6 +8,6 @@ private:
 	Point P2;
 public:
 	CCircle(Point, Point, GfxInfo circleGfxInfo);
-	virtual void Draw(Output* pOut) const;
+	void Draw(Output* pOut) const override;
 };
 
