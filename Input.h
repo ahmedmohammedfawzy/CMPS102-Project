@@ -1,9 +1,9 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include "..\DEFS.h"
+#include "DEFS.h"
 #include "UI_Info.h" 
-#include "..\CMUgraphicsLib\CMUgraphics.h"
+#include "CMUgraphicsLib\CMUgraphics.h"
 
 class Output;   // forward declaration
 

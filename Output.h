@@ -21,9 +21,11 @@ public:
 
 	// -- Figures Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected=false) const;  //Draw a rectangle
-  void Drawsqre(Point P1, GfxInfo sqreGfxInfo, bool selected = false) const;
+	void Drawsqre(Point P1, GfxInfo sqreGfxInfo, bool selected = false) const;
 	void Drawcircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected=false) const;  //Draw a circle
-	///TODO:Make similar functions for drawing all other figure types.
+	void DrawTri(Point P1, Point P2, Point P3, GfxInfo TriGfxInfo, bool selected) const;
+	void DrawCircle(Point P1, Point P2, GfxInfo circleGfxInfo, bool selected) const;
+	void DrawHexagon(Point P1, GfxInfo gfxInfo, bool selected) const;
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
 

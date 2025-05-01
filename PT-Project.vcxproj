@@ -128,9 +128,11 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="addcircleaction.cpp" />
-    <ClCompile Include="Ccircle.cpp" />
+    <ClCompile Include="AddCircleAction.cpp" />
+    <ClCompile Include="AddRectAction.cpp" />
     <ClCompile Include="AddSquareAction.cpp" />
+    <ClCompile Include="CCircle.cpp" />
+    <ClCompile Include="CFigure.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
     <ClCompile Include="CMUgraphicsLib\colors.cpp" />
@@ -167,19 +169,20 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant1.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
+    <ClCompile Include="CRectangle.cpp" />
     <ClCompile Include="CSquare.cpp" />
-    <ClCompile Include="Figures\CFigure.cpp" />
-    <ClCompile Include="Figures\CRectangle.cpp" />
-    <ClCompile Include="Actions\AddRectAction.cpp" />
-    <ClCompile Include="GUI\Input.cpp" />
-    <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Output.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="addcircleaction.h" />
-    <ClInclude Include="Ccircle.h" />
+    <ClInclude Include="Action.h" />
+    <ClInclude Include="AddCircleAction.h" />
+    <ClInclude Include="AddRectAction.h" />
     <ClInclude Include="AddSquareAction.h" />
+    <ClInclude Include="CCircle.h" />
+    <ClInclude Include="CFigure.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
     <ClInclude Include="CMUgraphicsLib\colors.h" />
@@ -200,16 +203,13 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jpegint.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jpeglib.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
+    <ClInclude Include="CRectangle.h" />
     <ClInclude Include="CSquare.h" />
-    <ClInclude Include="Figures\CFigure.h" />
-    <ClInclude Include="Figures\CRectangle.h" />
-    <ClInclude Include="Actions\Action.h" />
-    <ClInclude Include="Actions\AddRectAction.h" />
-    <ClInclude Include="GUI\Input.h" />
-    <ClInclude Include="GUI\Output.h" />
-    <ClInclude Include="GUI\UI_Info.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Output.h" />
+    <ClInclude Include="UI_Info.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

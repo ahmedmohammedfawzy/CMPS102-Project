@@ -3,8 +3,8 @@
 
 #include "ApplicationManager.h"
 
-#include "GUI\input.h"
-#include "GUI\Output.h"
+#include "input.h"
+#include "Output.h"
 
 AddSquareAction::AddSquareAction(ApplicationManager* pApp) : Action(pApp)
 {

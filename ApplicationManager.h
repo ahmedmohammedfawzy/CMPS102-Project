@@ -2,9 +2,9 @@
 #define APPLICATION_MANAGER_H
 
 #include "DEFS.h"
-#include "Figures\CFigure.h"
-#include "GUI\input.h"
-#include "GUI\output.h"
+#include "CFigure.h"
+#include "input.h"
+#include "output.h"
 
 //Main class that manages everything in the application.
 class ApplicationManager
