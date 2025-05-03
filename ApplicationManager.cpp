@@ -5,6 +5,7 @@
 #include "AddTriangleAction.h"
 #include "SelectAction.h"
 #include "AddHexagonAction.h"
+#include "CopyAction.h"
 
 
 //Constructor
@@ -61,6 +62,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SELECT:
 			pAct = new SelectAction(this);
 			break;
+
+		case COPY:
+			pAct = new CopyAction(this);
+			break;
+	
 
 		case EXIT:
 			///create ExitAction here
@@ -144,6 +150,14 @@ void ApplicationManager::UpdateInterface() const
 
 	pOut->RedrawToolBar();
 	pOut->ClearStatusBar();
+}
+int ApplicationManager::getSelectedFigsCount() const
+{
+	return SelectedFigsCount;
+}
+void ApplicationManager::moveSelectedToClipboard()
+{
+	Clipboard = SelectedFigs[0];
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the input

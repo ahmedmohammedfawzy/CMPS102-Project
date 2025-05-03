@@ -172,6 +172,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant1.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
+    <ClCompile Include="CopyAction.cpp" />
     <ClCompile Include="CRectangle.cpp" />
     <ClCompile Include="CSquare.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jpegint.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jpeglib.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
+    <ClInclude Include="CopyAction.h" />
     <ClInclude Include="CRectangle.h" />
     <ClInclude Include="CSquare.h" />
     <ClInclude Include="ApplicationManager.h" />
