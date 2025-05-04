@@ -42,6 +42,7 @@ public:
 
 	bool RotateFigure(CFigure* pFig, bool isClock);
 	
+	void SwapFigures(CFigure*, CFigure*);
 
 	// -- Interface Management Functions
 	Input *GetInput() const; //Return pointer to the input

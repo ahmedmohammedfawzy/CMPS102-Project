@@ -12,5 +12,7 @@ public:
 	void Draw(Output* pOut) const override;
 	void Rotate(bool IsClock) override;
 	bool CanRotate() override;
+	void MoveTo(Point newCenter) override;
+	Point GetCenter() override;
 };
 

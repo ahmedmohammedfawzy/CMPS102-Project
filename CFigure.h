@@ -27,6 +27,8 @@ public:
 	virtual bool IsPointInsideFig(int x, int y) = 0;
 	virtual void Rotate(bool IsClock) = 0;
 	virtual bool CanRotate() = 0;
+	virtual void MoveTo(Point newCenter) = 0;
+	virtual Point GetCenter() = 0;
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 

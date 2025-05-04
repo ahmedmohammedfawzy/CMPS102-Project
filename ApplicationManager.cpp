@@ -7,6 +7,7 @@
 #include "RotateAction.h"
 #include "AddHexagonAction.h"
 #include "CopyAction.h"
+#include "SwapAction.h"
 
 
 //Constructor
@@ -66,6 +67,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case ROTATE:
 			pAct = new RotateAction(this);
+			break;
+
+		case SWAP:
+			pAct = new SwapAction(this);
 			break;
 
 		case COPY:
@@ -156,6 +161,15 @@ bool ApplicationManager::RotateFigure(CFigure* pFig, bool isClock)
 	{
 		return false;
 	}
+}
+void ApplicationManager::SwapFigures(CFigure* shape1, CFigure* shape2)
+{
+	Point cen1 = shape1->GetCenter();
+	Point cen2 = shape2->GetCenter();
+
+	shape1->MoveTo(cen2);
+	shape2->MoveTo(cen1);
+	ClearSelection();
 }
 //==================================================================================//
 //							Interface Management Functions							//

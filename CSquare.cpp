@@ -1,13 +1,18 @@
 #include "CSquare.h"
 
+void CSquare::CalculateCorners()
+{
+	Corner2.x = Center.x + SQUARE_SIZE / 2;
+	Corner2.y = Center.y + SQUARE_SIZE / 2;
+
+	Corner1.x = Center.x - SQUARE_SIZE / 2;
+	Corner1.y = Center.y - SQUARE_SIZE / 2;
+}
+
 CSquare::CSquare(Point c, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
-	center = c;
-	Corner2.x = center.x + SQUARE_SIZE / 2;
-	Corner2.y = center.y + SQUARE_SIZE / 2;
-
-	Corner1.x = center.x - SQUARE_SIZE / 2;
-	Corner1.y = center.y - SQUARE_SIZE / 2;
+	Center = c;
+	CalculateCorners();
 }
 
 bool CSquare::IsPointInsideFig(int x, int y)
@@ -31,4 +36,15 @@ void CSquare::Rotate(bool IsClock)
 bool CSquare::CanRotate()
 {
 	return false;
+}
+
+void CSquare::MoveTo(Point newCenter)
+{
+	Center = newCenter;
+	CalculateCorners();
+}
+
+Point CSquare::GetCenter()
+{
+	return { (Corner1.x + Corner2.x) / 2, (Corner1.y + Corner2.y) / 2 };
 }

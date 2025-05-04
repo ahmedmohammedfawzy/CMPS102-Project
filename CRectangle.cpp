@@ -25,7 +25,7 @@ void CRectangle::Draw(Output* pOut) const
 
 void CRectangle::Rotate(bool IsClock)
 {
-	Point cen{(Corner1.x+Corner2.x)/2, (Corner1.y + Corner2.y) / 2 };
+	Point cen = GetCenter();
 	Corner1 = Rotate90DegPointAroundCenter(Corner1, cen, IsClock);
 	Corner2 = Rotate90DegPointAroundCenter(Corner2, cen, IsClock);
 }
@@ -34,3 +34,16 @@ bool CRectangle::CanRotate()
 {
 	return true;
 }
+
+void CRectangle::MoveTo(Point newCenter)
+{
+	Point oldCen = GetCenter();
+	Corner1 = { Corner1.x - oldCen.x + newCenter.x, Corner1.y - oldCen.y + newCenter.y };
+	Corner2 = { Corner2.x - oldCen.x + newCenter.x, Corner2.y - oldCen.y + newCenter.y };
+}
+
+Point CRectangle::GetCenter()
+{
+	return { (Corner1.x + Corner2.x) / 2, (Corner1.y + Corner2.y) / 2 };
+}
+

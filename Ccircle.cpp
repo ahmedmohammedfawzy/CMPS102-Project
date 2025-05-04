@@ -26,3 +26,13 @@ bool CCircle::CanRotate()
 {
 	return false;
 }
+
+void CCircle::MoveTo(Point newCenter)
+{
+	Center = newCenter;
+}
+
+Point CCircle::GetCenter()
+{
+	return Center;
+}
