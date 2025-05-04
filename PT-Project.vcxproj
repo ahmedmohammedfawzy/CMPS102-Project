@@ -180,6 +180,7 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Output.cpp" />
+    <ClCompile Include="RotateAction.cpp" />
     <ClCompile Include="SelectAction.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +222,7 @@
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Output.h" />
+    <ClInclude Include="RotateAction.h" />
     <ClInclude Include="SelectAction.h" />
     <ClInclude Include="UI_Info.h" />
   </ItemGroup>

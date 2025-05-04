@@ -31,7 +31,7 @@ public:
 	// -- Action-Related Functions
 	//Reads the input command from the user and returns the corresponding action type
 	ActionType GetUserAction() const;
-	void ExecuteAction(ActionType) ; //Creates an action and executes it
+	void ExecuteAction(ActionType); //Creates an action and executes it
 	
 	// -- Figures Management Functions
 	void AddFigure(CFigure* pFig);          //Adds a new figure to the FigList
@@ -39,14 +39,18 @@ public:
 	void SelectFigure(CFigure* pFig);
 	void DeselectFigure(CFigure* pFig);
 	void ClearSelection();
-		
+
+	bool RotateFigure(CFigure* pFig, bool isClock);
+	
+
 	// -- Interface Management Functions
 	Input *GetInput() const; //Return pointer to the input
 	Output *GetOutput() const; //Return pointer to the output
 	void UpdateInterface() const;	//Redraws all the drawing window
 
-	int getSelectedFigsCount() const;
-	void moveSelectedToClipboard();
+	int GetSelectedFigsCount() const;
+	CFigure** GetSelectedFigs();
+	void MoveSelectedToClipboard();
 
 };
 

@@ -25,6 +25,8 @@ public:
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
 
 	virtual bool IsPointInsideFig(int x, int y) = 0;
+	virtual void Rotate(bool IsClock) = 0;
+	virtual bool CanRotate() = 0;
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 

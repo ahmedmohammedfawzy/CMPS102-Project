@@ -35,3 +35,16 @@ void CHexagon::Draw(Output* pOut) const
 {
 	pOut->DrawHexagon(Vertices, FigGfxInfo, Selected);
 }
+
+void CHexagon::Rotate(bool isClock)
+{
+	for (int i = 0; i < 6; i++)
+	{
+		Vertices[i] = Rotate90DegPointAroundCenter(Vertices[i], Center, isClock);
+	}
+}
+
+bool CHexagon::CanRotate()
+{
+	return true;
+}

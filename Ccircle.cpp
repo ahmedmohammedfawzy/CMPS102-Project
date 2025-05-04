@@ -19,3 +19,10 @@ void CCircle::Draw(Output* pOut) const
 {
 	pOut->DrawCircle(Center, Radius, FigGfxInfo, Selected);
 }
+
+void CCircle::Rotate(bool IsClock) {}
+
+bool CCircle::CanRotate()
+{
+	return false;
+}

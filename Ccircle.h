@@ -10,5 +10,7 @@ public:
 	CCircle(Point, int, GfxInfo circleGfxInfo);
 	bool IsPointInsideFig(int x, int y) override;
 	void Draw(Output* pOut) const override;
+	void Rotate(bool IsClock) override;
+	bool CanRotate() override;
 };
 

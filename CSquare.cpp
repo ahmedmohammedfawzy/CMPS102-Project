@@ -23,3 +23,12 @@ void CSquare::Draw(Output* pOut) const
 {
 	pOut->DrawRect(Corner1, Corner2, FigGfxInfo, Selected);
 }
+
+void CSquare::Rotate(bool IsClock)
+{
+}
+
+bool CSquare::CanRotate()
+{
+	return false;
+}
