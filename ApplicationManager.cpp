@@ -7,6 +7,7 @@
 #include "RotateAction.h"
 #include "AddHexagonAction.h"
 #include "CopyAction.h"
+#include "DeleteAction.h"
 #include "SwapAction.h"
 #include "SwitchToPlayModeAction.h"
 
@@ -78,6 +79,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new CopyAction(this);
 			break;
 
+		case DEL:
+			pAct = new DeleteAction(this);
 		case TO_PLAY:
 			pAct = new SwitchToPlayModeAction(this);
 			break;
@@ -203,6 +206,40 @@ CFigure** ApplicationManager::GetSelectedFigs()
 void ApplicationManager::MoveSelectedToClipboard()
 {
 	Clipboard = SelectedFigs[0];
+}
+void ApplicationManager::deleteFigure(CFigure *ptr)
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		if (FigList[i] == ptr) {
+			FigList[i] = NULL;
+			for (int j = i; j < FigCount - 1 ; j++)
+			{
+				FigList[j] = FigList[j] + 1;
+			}
+		}
+	}
+	FigCount --;
+
+	for (int i = 0; i < SelectedFigsCount; i++)
+	{
+		if (SelectedFigs[i] == ptr) {
+			SelectedFigs[i] = NULL;
+			for (int j = i; j < SelectedFigsCount - 1; j++)
+			{
+				SelectedFigs[j] = SelectedFigs[j] + 1;
+			}
+		}
+	}
+	SelectedFigsCount--;
+	delete ptr;
+}
+void ApplicationManager::deleteSelectedFigs()
+{
+	for (int i = 0; i < SelectedFigsCount; i++)
+	{
+		deleteFigure(SelectedFigs[i]);
+	}
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the input
