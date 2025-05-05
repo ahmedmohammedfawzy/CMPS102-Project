@@ -29,6 +29,10 @@ public:
 	virtual bool CanRotate() = 0;
 	virtual void MoveTo(Point newCenter) = 0;
 	virtual Point GetCenter() = 0;
+
+	int getID();
+	void setID(int id);
+	virtual string SaveInfo()=0;
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 

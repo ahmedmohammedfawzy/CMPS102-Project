@@ -23,6 +23,7 @@ private:
 	Output *pOut;
 
 	CFigure* Clipboard;  //Pointer to copied/cut figure
+	int lastID;
 
 public:	
 	ApplicationManager(); 
@@ -52,6 +53,7 @@ public:
 	int GetSelectedFigsCount() const;
 	CFigure** GetSelectedFigs();
 	void MoveSelectedToClipboard();
+	string SaveInfo();
 
 };
 

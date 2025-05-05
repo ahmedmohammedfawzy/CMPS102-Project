@@ -22,3 +22,13 @@ void CFigure::ChngFillClr(color Fclr)
 	FigGfxInfo.FillClr = Fclr; 
 }
 
+int CFigure::getID()
+{
+	return ID;
+}
+
+void CFigure::setID(int id)
+{
+	ID = id;
+}
+

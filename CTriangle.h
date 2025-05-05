@@ -14,5 +14,6 @@ public:
 	bool CanRotate() override;
 	void MoveTo(Point newCenter) override;
 	Point GetCenter() override;
+	string SaveInfo() override;
 };
 

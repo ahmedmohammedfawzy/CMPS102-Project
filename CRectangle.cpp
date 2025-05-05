@@ -1,5 +1,6 @@
 #include "CRectangle.h"
 #include "Helpers.h"
+#include"sstream"
 
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
@@ -45,5 +46,13 @@ void CRectangle::MoveTo(Point newCenter)
 Point CRectangle::GetCenter()
 {
 	return { (Corner1.x + Corner2.x) / 2, (Corner1.y + Corner2.y) / 2 };
+}
+
+string CRectangle::SaveInfo()
+{
+	
+	ostringstream rectinfo;
+	rectinfo << "Rectangle " << ID << " " << Corner1.x << " " << Corner1.y << " " <<Corner2.x << " "<<Corner2.y <<" "<< (int)FigGfxInfo.FillClr.ucRed << " " << (int)FigGfxInfo.FillClr.ucGreen << " " << (int)FigGfxInfo.FillClr.ucBlue;
+	return rectinfo.str();
 }
 

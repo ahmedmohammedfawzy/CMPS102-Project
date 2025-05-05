@@ -1,5 +1,6 @@
 #include "CHexagon.h"
 #include "Helpers.h"
+#include "sstream"
 
 void CHexagon::CalculateVertices()
 {
@@ -63,4 +64,10 @@ void CHexagon::MoveTo(Point newCenter)
 Point CHexagon::GetCenter()
 {
 	return Center;
+}
+string CHexagon::SaveInfo()
+{
+	ostringstream hexinfo;
+	hexinfo << "Hexagon " << ID <<" " <<Center.x <<" "<<Center.y <<" " << (int)FigGfxInfo.FillClr.ucRed << " " << (int)FigGfxInfo.FillClr.ucGreen << " " << (int)FigGfxInfo.FillClr.ucBlue;
+	return hexinfo.str();
 }

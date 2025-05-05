@@ -1,4 +1,5 @@
 #include "CSquare.h"
+#include"sstream"
 
 void CSquare::CalculateCorners()
 {
@@ -47,4 +48,12 @@ void CSquare::MoveTo(Point newCenter)
 Point CSquare::GetCenter()
 {
 	return { (Corner1.x + Corner2.x) / 2, (Corner1.y + Corner2.y) / 2 };
+
+}
+string CSquare::SaveInfo()
+{
+
+	ostringstream Squarinfo;
+	Squarinfo << "Square " << ID << " " << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " " << (int)FigGfxInfo.FillClr.ucRed << " " << (int)FigGfxInfo.FillClr.ucGreen << " " << (int)FigGfxInfo.FillClr.ucBlue;
+	return Squarinfo.str();
 }
