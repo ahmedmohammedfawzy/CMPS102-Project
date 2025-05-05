@@ -16,6 +16,7 @@ public:
 	bool CanRotate() override;
 	void MoveTo(Point newCenter) override;
 	Point GetCenter() override;
+	CFigure* Clone() override;
 };
 
 #endif

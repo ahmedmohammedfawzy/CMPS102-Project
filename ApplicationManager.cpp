@@ -11,6 +11,7 @@
 #include "SwapAction.h"
 #include "SwitchToPlayModeAction.h"
 #include "CutAction.h"
+#include "PasteAction.h"
 
 
 //Constructor
@@ -22,6 +23,7 @@ ApplicationManager::ApplicationManager()
 	
 	FigCount = 0;
 	SelectedFigsCount = 0;
+	Clipboard = nullptr;
 		
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
@@ -86,6 +88,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case CUT:
 			pAct = new CutAction(this);
+			break;
+
+		case PASTE:
+			pAct = new PasteAction(this);
 			break;
 
 		case TO_PLAY:
@@ -210,11 +216,36 @@ CFigure** ApplicationManager::GetSelectedFigs()
 	return SelectedFigs;
 }
 
-void ApplicationManager::MoveSelectedToClipboard()
+void ApplicationManager::MoveSelectedToClipboard(bool isCut)
 {
+	if (Clipboard != nullptr)
+	{
+		Clipboard->setGreyColor(false);
+
+		if (isClipboardCut)
+			delete Clipboard;
+	}
+
+	isClipboardCut = isCut;
 	Clipboard = SelectedFigs[0];
+	DeselectFigure(Clipboard);
+	Clipboard->setGreyColor(isCut);
 }
-void ApplicationManager::deleteFigure(CFigure *ptr)
+
+void ApplicationManager::PasteFromClipboard(Point newCent)
+{
+	CFigure* newfig = Clipboard->Clone();
+	newfig->MoveTo(newCent);
+	AddFigure(newfig);
+
+	if (isClipboardCut) 
+	{
+		newfig->setGreyColor(false);
+		deleteFigure(Clipboard, false);
+	}
+}
+
+void ApplicationManager::deleteFigure(CFigure *ptr, bool deAllocate)
 {
 	for (int i = 0; i < FigCount; i++)
 	{
@@ -222,11 +253,11 @@ void ApplicationManager::deleteFigure(CFigure *ptr)
 			FigList[i] = NULL;
 			for (int j = i; j < FigCount - 1 ; j++)
 			{
-				FigList[j] = FigList[j] + 1;
+				FigList[j] = FigList[j + 1];
 			}
+			FigCount--;
 		}
 	}
-	FigCount --;
 
 	for (int i = 0; i < SelectedFigsCount; i++)
 	{
@@ -234,18 +265,19 @@ void ApplicationManager::deleteFigure(CFigure *ptr)
 			SelectedFigs[i] = NULL;
 			for (int j = i; j < SelectedFigsCount - 1; j++)
 			{
-				SelectedFigs[j] = SelectedFigs[j] + 1;
+				SelectedFigs[j] = SelectedFigs[j + 1];
 			}
+			SelectedFigsCount--;
 		}
 	}
-	SelectedFigsCount--;
-	delete ptr;
+	if (deAllocate)
+		delete ptr;
 }
 void ApplicationManager::deleteSelectedFigs()
 {
 	for (int i = 0; i < SelectedFigsCount; i++)
 	{
-		deleteFigure(SelectedFigs[i]);
+		deleteFigure(SelectedFigs[i], true);
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////

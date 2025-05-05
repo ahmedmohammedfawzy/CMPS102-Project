@@ -23,6 +23,7 @@ private:
 	Output *pOut;
 
 	CFigure* Clipboard;  //Pointer to copied/cut figure
+	bool isClipboardCut;
 
 public:	
 	ApplicationManager(); 
@@ -49,13 +50,12 @@ public:
 	Output *GetOutput() const; //Return pointer to the output
 	void UpdateInterface() const;	//Redraws all the drawing window
 
-	int getSelectedFigsCount() const;
-	void moveSelectedToClipboard();
-	void deleteFigure(CFigure *ptr);
+	void deleteFigure(CFigure *ptr, bool deAllocate);
 	void deleteSelectedFigs();
 	int GetSelectedFigsCount() const;
 	CFigure** GetSelectedFigs();
-	void MoveSelectedToClipboard();
+	void MoveSelectedToClipboard(bool isCut);
+	void PasteFromClipboard(Point);
 
 };
 

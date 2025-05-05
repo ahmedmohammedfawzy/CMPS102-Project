@@ -38,7 +38,9 @@ bool CHexagon::IsPointInsideFig(int x, int y)
 
 void CHexagon::Draw(Output* pOut) const
 {
-	pOut->DrawHexagon(Vertices, FigGfxInfo, Selected);
+	GfxInfo gfx = FigGfxInfo;
+	gfx.FillClr = IsGreyed ? GREY : FigGfxInfo.FillClr;
+	pOut->DrawHexagon(Vertices, gfx, Selected);
 }
 
 void CHexagon::Rotate(bool isClock)
@@ -63,4 +65,9 @@ void CHexagon::MoveTo(Point newCenter)
 Point CHexagon::GetCenter()
 {
 	return Center;
+}
+
+CFigure* CHexagon::Clone()
+{
+	return new CHexagon(*this);
 }

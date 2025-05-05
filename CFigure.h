@@ -10,9 +10,9 @@ class CFigure
 protected:
 	int ID;		//Each figure has an ID
 	bool Selected;	//true if the figure is selected.
+	bool IsGreyed;
 	GfxInfo FigGfxInfo;	//Figure graphis info	
 	/// Add more parameters if needed.
-	color oldColor;
 
 public:
 	CFigure(GfxInfo FigureGfxInfo);
@@ -30,8 +30,10 @@ public:
 	virtual bool CanRotate() = 0;
 	virtual void MoveTo(Point newCenter) = 0;
 	virtual Point GetCenter() = 0;
+	virtual CFigure* Clone() = 0;
 
 	void setGreyColor(bool isGrey);
+
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 
