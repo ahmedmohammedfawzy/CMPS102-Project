@@ -180,6 +180,8 @@
     <ClCompile Include="DeleteAction.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MatchingPairsAction.cpp" />
+    <ClCompile Include="MissingShapes.cpp" />
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="RotateAction.cpp" />
     <ClCompile Include="SelectAction.cpp" />
@@ -225,6 +227,8 @@
     <ClInclude Include="DeleteAction.h" />
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="MatchingPairsAction.h" />
+    <ClInclude Include="MissingShapes.h" />
     <ClInclude Include="Output.h" />
     <ClInclude Include="RotateAction.h" />
     <ClInclude Include="SelectAction.h" />

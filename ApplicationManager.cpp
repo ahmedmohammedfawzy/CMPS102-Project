@@ -10,6 +10,8 @@
 #include "DeleteAction.h"
 #include "SwapAction.h"
 #include "SwitchToPlayModeAction.h"
+#include "MatchingPairsAction.h"
+
 
 
 //Constructor
@@ -21,6 +23,7 @@ ApplicationManager::ApplicationManager()
 	
 	FigCount = 0;
 	SelectedFigsCount = 0;
+	Score = 0;
 		
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
@@ -78,6 +81,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case COPY:
 			pAct = new CopyAction(this);
 			break;
+
+		case PLAY_MISSING_PAIRS:
+			pAct = new MatchingPairsAction(this);
+			break;
+	
 
 		case DEL:
 			pAct = new DeleteAction(this);
@@ -209,6 +217,7 @@ void ApplicationManager::MoveSelectedToClipboard()
 {
 	Clipboard = SelectedFigs[0];
 }
+
 void ApplicationManager::deleteFigure(CFigure *ptr)
 {
 	for (int i = 0; i < FigCount; i++)

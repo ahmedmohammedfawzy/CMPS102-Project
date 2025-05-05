@@ -23,7 +23,7 @@ public:
 	
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
-
+	color GetFillClr();
 	virtual bool IsPointInsideFig(int x, int y) = 0;
 	virtual void Rotate(bool IsClock) = 0;
 	virtual bool CanRotate() = 0;
