@@ -17,16 +17,16 @@ void CopyAction::Execute()
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 
-	if (pManager->getSelectedFigsCount() > 1)
+	if (pManager->GetSelectedFigsCount() > 1)
 	{
 		pOut->PrintMessage("Error!!! Can't copy multiple figures. Please select only one figure.");
 		return;
 	}
-	else if (pManager->getSelectedFigsCount() == 0) {
+	else if (pManager->GetSelectedFigsCount() == 0) {
 		pOut->PrintMessage("Error!!! Please select one figure.");
 	}
 	else
 	{
-		pManager->moveSelectedToClipboard();
+		pManager->MoveSelectedToClipboard();
 	}
 }

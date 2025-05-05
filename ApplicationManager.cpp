@@ -4,8 +4,10 @@
 #include "AddCircleAction.h"
 #include "AddTriangleAction.h"
 #include "SelectAction.h"
+#include "RotateAction.h"
 #include "AddHexagonAction.h"
 #include "CopyAction.h"
+#include "SwapAction.h"
 
 
 //Constructor
@@ -61,6 +63,14 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case SELECT:
 			pAct = new SelectAction(this);
+			break;
+
+		case ROTATE:
+			pAct = new RotateAction(this);
+			break;
+
+		case SWAP:
+			pAct = new SwapAction(this);
 			break;
 
 		case COPY:
@@ -138,6 +148,29 @@ void ApplicationManager::ClearSelection()
 	}
 	SelectedFigsCount = 0;
 }
+
+bool ApplicationManager::RotateFigure(CFigure* pFig, bool isClock)
+{
+	if (pFig->CanRotate()) 
+	{
+		pFig->Rotate(isClock);
+		ClearSelection();
+		return true;
+	} 
+	else 
+	{
+		return false;
+	}
+}
+void ApplicationManager::SwapFigures(CFigure* shape1, CFigure* shape2)
+{
+	Point cen1 = shape1->GetCenter();
+	Point cen2 = shape2->GetCenter();
+
+	shape1->MoveTo(cen2);
+	shape2->MoveTo(cen1);
+	ClearSelection();
+}
 //==================================================================================//
 //							Interface Management Functions							//
 //==================================================================================//
@@ -145,17 +178,25 @@ void ApplicationManager::ClearSelection()
 //Draw all figures on the user interface
 void ApplicationManager::UpdateInterface() const
 {	
+	pOut->ClearDrawArea();
+
 	for(int i=0; i<FigCount; i++)
 		FigList[i]->Draw(pOut);		//Call Draw function (virtual member fn)
 
 	pOut->RedrawToolBar();
-	pOut->ClearStatusBar();
 }
-int ApplicationManager::getSelectedFigsCount() const
+
+int ApplicationManager::GetSelectedFigsCount() const
 {
 	return SelectedFigsCount;
 }
-void ApplicationManager::moveSelectedToClipboard()
+
+CFigure** ApplicationManager::GetSelectedFigs()
+{
+	return SelectedFigs;
+}
+
+void ApplicationManager::MoveSelectedToClipboard()
 {
 	Clipboard = SelectedFigs[0];
 }

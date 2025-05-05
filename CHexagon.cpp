@@ -1,22 +1,27 @@
 #include "CHexagon.h"
 #include "Helpers.h"
 
-CHexagon::CHexagon(Point center, GfxInfo hexagonGfxInfo): CFigure(hexagonGfxInfo)
+void CHexagon::CalculateVertices()
 {
-	Center = center;
-
 	Vertices[0] = { HEXAGON_SIZE, 0 };
 	Vertices[1] = { (HEXAGON_SIZE / 2), (int)((sqrt(3) / 2) * HEXAGON_SIZE) };
 	Vertices[2] = { -(HEXAGON_SIZE / 2), (int)((sqrt(3) / 2) * HEXAGON_SIZE) };
 	Vertices[3] = { -HEXAGON_SIZE, 0 };
-	Vertices[4] = { -(HEXAGON_SIZE / 2), (int)(-(sqrt(3) / 2) * HEXAGON_SIZE)};
-	Vertices[5] = { (HEXAGON_SIZE / 2), (int)(-(sqrt(3) / 2) * HEXAGON_SIZE)};
+	Vertices[4] = { -(HEXAGON_SIZE / 2), (int)(-(sqrt(3) / 2) * HEXAGON_SIZE) };
+	Vertices[5] = { (HEXAGON_SIZE / 2), (int)(-(sqrt(3) / 2) * HEXAGON_SIZE) };
 
 	for (int i = 0; i < 6; i++)
 	{
-		Vertices[i].x += center.x;
-		Vertices[i].y += center.y;
+		Vertices[i].x += Center.x;
+		Vertices[i].y += Center.y;
 	}
+}
+
+CHexagon::CHexagon(Point center, GfxInfo hexagonGfxInfo): CFigure(hexagonGfxInfo)
+{
+	Center = center;
+	CalculateVertices();
+
 }
 bool CHexagon::IsPointInsideFig(int x, int y)
 {
@@ -34,4 +39,28 @@ bool CHexagon::IsPointInsideFig(int x, int y)
 void CHexagon::Draw(Output* pOut) const
 {
 	pOut->DrawHexagon(Vertices, FigGfxInfo, Selected);
+}
+
+void CHexagon::Rotate(bool isClock)
+{
+	for (int i = 0; i < 6; i++)
+	{
+		Vertices[i] = Rotate90DegPointAroundCenter(Vertices[i], Center, isClock);
+	}
+}
+
+bool CHexagon::CanRotate()
+{
+	return true;
+}
+
+void CHexagon::MoveTo(Point newCenter)
+{
+	Center = newCenter;
+	CalculateVertices();
+}
+
+Point CHexagon::GetCenter()
+{
+	return Center;
 }
