@@ -177,6 +177,7 @@
     <ClCompile Include="CSquare.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="CTriangle.cpp" />
+    <ClCompile Include="DeleteAction.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Output.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="CTriangle.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="DeleteAction.h" />
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Output.h" />

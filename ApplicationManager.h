@@ -47,6 +47,9 @@ public:
 
 	int getSelectedFigsCount() const;
 	void moveSelectedToClipboard();
+	void deleteFigure(CFigure *ptr);
+	void deleteSelectedFigs();
+
 
 };
 
