@@ -177,10 +177,12 @@
     <ClCompile Include="CSquare.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="CTriangle.cpp" />
+    <ClCompile Include="CutAction.cpp" />
     <ClCompile Include="DeleteAction.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Output.cpp" />
+    <ClCompile Include="PasteAction.cpp" />
     <ClCompile Include="RotateAction.cpp" />
     <ClCompile Include="SelectAction.cpp" />
     <ClCompile Include="SwapAction.cpp" />
@@ -221,11 +223,13 @@
     <ClInclude Include="CSquare.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="CTriangle.h" />
+    <ClInclude Include="CutAction.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="DeleteAction.h" />
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Output.h" />
+    <ClInclude Include="PasteAction.h" />
     <ClInclude Include="RotateAction.h" />
     <ClInclude Include="SelectAction.h" />
     <ClInclude Include="SwapAction.h" />

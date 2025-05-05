@@ -22,3 +22,16 @@ void CFigure::ChngFillClr(color Fclr)
 	FigGfxInfo.FillClr = Fclr; 
 }
 
+void CFigure::setGreyColor(bool isGrey)
+{
+	ChngFillClr(GREY);
+
+	if (isGrey == true) {
+		oldColor = FigGfxInfo.FillClr;
+		ChngFillClr(GREY);
+	}
+	else {
+		FigGfxInfo.FillClr = oldColor;
+	}
+}
+
