@@ -179,6 +179,7 @@
       <Filter>Action Classes</Filter>
     </ClCompile>
     <ClCompile Include="DeleteAction.cpp">
+    <ClCompile Include="RotateAction.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -300,6 +301,7 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="DeleteAction.h">
+    <ClInclude Include="RotateAction.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>

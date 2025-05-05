@@ -22,3 +22,18 @@ inline bool isInsideTriangle(Point A, Point B, Point C, Point P) {
     // Check if inside
     return (u >= 0) && (v >= 0) && (u + v <= 1);
 }
+
+inline Point Rotate90DegPointAroundCenter(Point p, Point center, bool isClock) 
+{
+    Point shiftedp{p.x - center.x, p.y - center.y};
+    Point rotP;
+    if (isClock)
+    {
+        rotP = { shiftedp.y, -shiftedp.x };
+    } 
+    else 
+    {
+        rotP = { -shiftedp.y, shiftedp.x };
+    }
+    return { rotP.x + center.x, rotP.y + center.y };
+}

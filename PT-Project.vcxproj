@@ -181,7 +181,10 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Output.cpp" />
+    <ClCompile Include="RotateAction.cpp" />
     <ClCompile Include="SelectAction.cpp" />
+    <ClCompile Include="SwapAction.cpp" />
+    <ClCompile Include="SwitchToPlayModeAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
@@ -223,7 +226,10 @@
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Output.h" />
+    <ClInclude Include="RotateAction.h" />
     <ClInclude Include="SelectAction.h" />
+    <ClInclude Include="SwapAction.h" />
+    <ClInclude Include="SwitchToPlayModeAction.h" />
     <ClInclude Include="UI_Info.h" />
   </ItemGroup>
   <ItemGroup>
