@@ -28,10 +28,10 @@ void AddTriangleAction::ReadActionParameters()
 
 	pIn->GetPointClicked(P3.x, P3.y);
 
-	TriGfxInfo.isFilled = false;	//default is not filled
+	TriGfxInfo.isFilled = true;	//default is not filled
 	//get drawing, filling colors and pen width from the interface
 	TriGfxInfo.DrawClr = pOut->getCrntDrawColor();
-	TriGfxInfo.FillClr = pOut->getCrntFillColor();
+	TriGfxInfo.FillClr = PromptUserForColor();
 
 	pOut->ClearStatusBar();
 }

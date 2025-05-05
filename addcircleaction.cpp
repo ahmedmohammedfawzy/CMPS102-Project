@@ -23,10 +23,10 @@ void AddCircleAction::ReadActionParameters()
 
 	pIn->GetPointClicked(P2.x, P2.y);
 
-	CircleGfxInfo.isFilled = false;	//default is not filled
+	CircleGfxInfo.isFilled = true;	//default is not filled
 	//get drawing, filling colors and pen width from the interface
 	CircleGfxInfo.DrawClr = pOut->getCrntDrawColor();
-	CircleGfxInfo.FillClr = pOut->getCrntFillColor();
+	CircleGfxInfo.FillClr = PromptUserForColor();
 
 	pOut->ClearStatusBar();
 }
