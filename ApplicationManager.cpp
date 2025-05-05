@@ -10,6 +10,7 @@
 #include "DeleteAction.h"
 #include "SwapAction.h"
 #include "SwitchToPlayModeAction.h"
+#include "CutAction.h"
 
 
 //Constructor
@@ -81,6 +82,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case DEL:
 			pAct = new DeleteAction(this);
+			break;
+
+		case CUT:
+			pAct = new CutAction(this);
 			break;
 
 		case TO_PLAY:
