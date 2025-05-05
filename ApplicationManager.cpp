@@ -8,6 +8,7 @@
 #include "AddHexagonAction.h"
 #include "CopyAction.h"
 #include "SwapAction.h"
+#include "SwitchToPlayModeAction.h"
 
 
 //Constructor
@@ -76,7 +77,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case COPY:
 			pAct = new CopyAction(this);
 			break;
-	
+
+		case TO_PLAY:
+			pAct = new SwitchToPlayModeAction(this);
+			break;
 
 		case EXIT:
 			///create ExitAction here
