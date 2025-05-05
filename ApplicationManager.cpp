@@ -81,6 +81,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case DEL:
 			pAct = new DeleteAction(this);
+			break;
+
 		case TO_PLAY:
 			pAct = new SwitchToPlayModeAction(this);
 			break;
