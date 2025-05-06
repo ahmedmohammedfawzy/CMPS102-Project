@@ -23,6 +23,15 @@ void CFigure::ChngFillClr(color Fclr)
 	FigGfxInfo.FillClr = Fclr; 
 }
 
+int CFigure::getID()
+{
+	return ID;
+}
+
+void CFigure::setID(int id)
+{
+	ID = id;
+}
 color CFigure::GetFillClr()
 {
 	return FigGfxInfo.FillClr;
@@ -30,6 +39,5 @@ color CFigure::GetFillClr()
 void CFigure::setGreyColor(bool isGrey)
 {
 	IsGreyed = isGrey;
-
 }
 

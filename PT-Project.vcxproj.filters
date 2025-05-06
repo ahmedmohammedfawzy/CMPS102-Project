@@ -183,6 +183,13 @@
     <ClCompile Include="RotateAction.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="CopyAction.cpp" />
+    <ClCompile Include="SaveGraph.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadGraph.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
     <ClCompile Include="SwapAction.cpp" />
     <ClCompile Include="SwitchToPlayModeAction.cpp" />
     <ClCompile Include="Action.cpp" />
@@ -301,6 +308,11 @@
     <ClInclude Include="AddHexagonAction.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
+    <ClInclude Include="CopyAction.h" />
+    <ClInclude Include="SwapAction.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadGraph.h">
     <ClInclude Include="CopyAction.h">
       <Filter>Action Classes</Filter>
     </ClInclude>

@@ -1,5 +1,7 @@
 #include "CTriangle.h"
 #include "Helpers.h"
+#include "sstream"
+#include "fstream"
 
 CTriangle::CTriangle(Point p1, Point p2, Point p3, GfxInfo gfx): CFigure(gfx)
 {
@@ -45,6 +47,23 @@ Point CTriangle::GetCenter()
 {
 	return { (P1.x + P2.x + P3.x) / 3, (P1.y + P2.y + P3.y) / 3 };
 }
+string CTriangle::SaveInfo()
+{
+
+	ostringstream info;
+	info << "Triangle " << ID << " " << P1.x << " " << P1.y << " " << P2.x << " " << P2.y << " " <<P3.x<<" "<<P3.y<< " " << (int)FigGfxInfo.FillClr.ucRed << " " << (int)FigGfxInfo.FillClr.ucGreen << " " << (int)FigGfxInfo.FillClr.ucBlue;
+	
+
+	return info.str();
+}
+
+void CTriangle::Load(ifstream& in)
+{
+	int r, g, b;
+	in >> ID >> P1.x >> P1.y >> P2.x >> P2.y >> P3.x >> P3.y >> r >> g >> b;
+	FigGfxInfo.FillClr = color(r, g, b);
+}
+
 
 CFigure* CTriangle::Clone()
 {

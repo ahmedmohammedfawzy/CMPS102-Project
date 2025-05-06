@@ -183,12 +183,14 @@
     <ClCompile Include="DeleteAction.cpp" />
     <ClCompile Include="ExitAction.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="LoadGraph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MatchingPairsAction.cpp" />
     <ClCompile Include="MissingShapes.cpp" />
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="PasteAction.cpp" />
     <ClCompile Include="RotateAction.cpp" />
+    <ClCompile Include="SaveGraph.cpp" />
     <ClCompile Include="SelectAction.cpp" />
     <ClCompile Include="SwapAction.cpp" />
     <ClCompile Include="SwitchToDrawAction.cpp" />
@@ -236,6 +238,9 @@
     <ClInclude Include="ExitAction.h" />
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="LoadGraph.h" />
+    <ClInclude Include="Output.h" />
+
     <ClInclude Include="MatchingPairsAction.h" />
     <ClInclude Include="MissingShapes.h" />
     <ClInclude Include="Output.h" />

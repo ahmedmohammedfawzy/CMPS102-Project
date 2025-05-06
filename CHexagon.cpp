@@ -1,5 +1,7 @@
 #include "CHexagon.h"
 #include "Helpers.h"
+#include "sstream"
+#include "fstream"
 
 void CHexagon::CalculateVertices()
 {
@@ -66,8 +68,21 @@ Point CHexagon::GetCenter()
 {
 	return Center;
 }
+string CHexagon::SaveInfo()
+{
+	ostringstream hexinfo;
+	hexinfo << "Hexagon " << ID <<" " <<Center.x <<" "<<Center.y <<" " << (int)FigGfxInfo.FillClr.ucRed << " " << (int)FigGfxInfo.FillClr.ucGreen << " " << (int)FigGfxInfo.FillClr.ucBlue;
+	return hexinfo.str();
+}
 
+void CHexagon::Load(ifstream& in)
+{
+	int r, g, b;
+	in >> ID >> Center.x >> Center.y >> r >> g >> b;
+	FigGfxInfo.FillClr = color(r, g, b);
+}
 CFigure* CHexagon::Clone()
 {
 	return new CHexagon(*this);
+
 }

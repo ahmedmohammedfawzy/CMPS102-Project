@@ -30,6 +30,10 @@ public:
 	virtual bool CanRotate() = 0;
 	virtual void MoveTo(Point newCenter) = 0;
 	virtual Point GetCenter() = 0;
+	int getID();
+	void setID(int id);
+	virtual string SaveInfo()=0;
+	virtual void Load(ifstream& file)=0;
 	virtual CFigure* Clone() = 0;
 
 	void setGreyColor(bool isGrey);

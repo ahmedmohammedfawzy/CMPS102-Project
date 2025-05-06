@@ -1,10 +1,13 @@
 #include "CCircle.h"
+#include "sstream"
+#include "fstream"
 
 CCircle::CCircle(Point c, int radius, GfxInfo circleGfxInfo) : CFigure(circleGfxInfo)
 {
 	Center = c;
 	Radius = radius;
 }
+
 
 bool CCircle::IsPointInsideFig(int x, int y)
 {
@@ -37,6 +40,21 @@ void CCircle::MoveTo(Point newCenter)
 Point CCircle::GetCenter()
 {
 	return Center;
+}
+
+string CCircle::SaveInfo()
+{
+
+	ostringstream circinfo;
+	circinfo << "circle " << ID << " " << Center.x << " " << Center.y << " " << (int)FigGfxInfo.FillClr.ucRed << " " << (int)FigGfxInfo.FillClr.ucGreen << " " << (int)FigGfxInfo.FillClr.ucBlue;
+	return circinfo.str();
+}
+
+void CCircle::Load(ifstream& in)
+{
+	int r, g, b;
+	in >> ID >> Center.x >> Center.y >> r >> g >> b;
+	FigGfxInfo.FillClr = color(r, g, b);
 }
 
 CFigure* CCircle::Clone()

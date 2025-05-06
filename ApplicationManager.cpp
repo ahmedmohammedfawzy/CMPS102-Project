@@ -9,6 +9,10 @@
 #include "CopyAction.h"
 #include "DeleteAction.h"
 #include "SwapAction.h"
+#include"SaveGraph.h"
+#include"LoadGraph.h"
+#include"CFigure.h"
+#include <sstream>
 #include "SwitchToPlayModeAction.h"
 #include "SwitchToDrawAction.h"
 #include "MatchingPairsAction.h"
@@ -27,6 +31,7 @@ ApplicationManager::ApplicationManager()
 	
 	FigCount = 0;
 	SelectedFigsCount = 0;
+	lastID = 0;
 	Score = 0;
 	Clipboard = nullptr;
 		
@@ -87,10 +92,15 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new CopyAction(this);
 			break;
 
+		case SAVE_GRAPH:
+			pAct = new SaveGraph(this);
 		case PLAY_MISSING_PAIRS:
 			pAct = new MatchingPairsAction(this);
 			break;
 	
+		case LOAD_GRAPH:
+			pAct = new LoadGraph(this);
+			break;
 
 		case DEL:
 			pAct = new DeleteAction(this);
@@ -127,7 +137,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	//Execute the created action
 	if(pAct != NULL)
 	{
-		pAct->Execute();//Execute
+ 		pAct->Execute();//Execute
 		delete pAct;	//You may need to change this line depending to your implementation
 		pAct = NULL;
 	}
@@ -140,7 +150,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 void ApplicationManager::AddFigure(CFigure* pFig)
 {
 	if(FigCount < MaxFigCount )
-		FigList[FigCount++] = pFig;	
+	{
+		FigList[FigCount++] = pFig;
+		pFig->setID(lastID);
+		lastID++;
+	}
+
 }
 ////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
@@ -326,4 +341,14 @@ ApplicationManager::~ApplicationManager()
 	delete pIn;
 	delete pOut;
 	
+}
+string ApplicationManager::SaveInfo()
+{
+	ostringstream saveinfo;
+	for (int i = 0;i < FigCount;i++)
+	{
+		saveinfo << FigList[i]->SaveInfo() << "\n";
+
+	}
+	return saveinfo.str();
 }
