@@ -137,6 +137,7 @@
     <ClCompile Include="CCircle.cpp" />
     <ClCompile Include="CFigure.cpp" />
     <ClCompile Include="CHexagon.cpp" />
+    <ClCompile Include="ClearAllAction.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
     <ClCompile Include="CMUgraphicsLib\colors.cpp" />
@@ -180,6 +181,7 @@
     <ClCompile Include="CTriangle.cpp" />
     <ClCompile Include="CutAction.cpp" />
     <ClCompile Include="DeleteAction.cpp" />
+    <ClCompile Include="ExitAction.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MatchingPairsAction.cpp" />
@@ -189,6 +191,7 @@
     <ClCompile Include="RotateAction.cpp" />
     <ClCompile Include="SelectAction.cpp" />
     <ClCompile Include="SwapAction.cpp" />
+    <ClCompile Include="SwitchToDrawAction.cpp" />
     <ClCompile Include="SwitchToPlayModeAction.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +204,7 @@
     <ClInclude Include="CCircle.h" />
     <ClInclude Include="CFigure.h" />
     <ClInclude Include="CHexagon.h" />
+    <ClInclude Include="ClearAllAction.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
     <ClInclude Include="CMUgraphicsLib\colors.h" />
@@ -229,6 +233,7 @@
     <ClInclude Include="CutAction.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="DeleteAction.h" />
+    <ClInclude Include="ExitAction.h" />
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="MatchingPairsAction.h" />
@@ -238,6 +243,7 @@
     <ClInclude Include="RotateAction.h" />
     <ClInclude Include="SelectAction.h" />
     <ClInclude Include="SwapAction.h" />
+    <ClInclude Include="SwitchToDrawAction.h" />
     <ClInclude Include="SwitchToPlayModeAction.h" />
     <ClInclude Include="UI_Info.h" />
   </ItemGroup>

@@ -10,9 +10,12 @@
 #include "DeleteAction.h"
 #include "SwapAction.h"
 #include "SwitchToPlayModeAction.h"
+#include "SwitchToDrawAction.h"
 #include "MatchingPairsAction.h"
 #include "CutAction.h"
 #include "PasteAction.h"
+#include "ExitAction.h"
+#include "ClearAllAction.h"
 
 
 //Constructor
@@ -105,9 +108,16 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new SwitchToPlayModeAction(this);
 			break;
 
+		case TO_DRAW:
+			pAct = new SwitchToDrawAction(this);
+			break;
+
+		case CLEAR:
+			pAct = new ClearAllAction(this);
+			break;
+
 		case EXIT:
-			///create ExitAction here
-			
+			pAct = new ExitAction(this);
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no action
@@ -251,6 +261,18 @@ void ApplicationManager::PasteFromClipboard(Point newCent)
 		newfig->setGreyColor(false);
 		deleteFigure(Clipboard, false);
 	}
+}
+
+void ApplicationManager::ClearAll()
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		deleteFigure(FigList[i], true);
+	}
+	FigCount = 0;
+	ClearSelection();
+	Clipboard = nullptr;
+	isClipboardCut = false;
 }
 
 void ApplicationManager::deleteFigure(CFigure *ptr, bool deAllocate)

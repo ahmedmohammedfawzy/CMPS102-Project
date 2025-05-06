@@ -58,6 +58,7 @@ public:
 	CFigure** GetSelectedFigs();
 	void MoveSelectedToClipboard(bool isCut);
 	void PasteFromClipboard(Point);
+	void ClearAll();
 };
 
 #endif
