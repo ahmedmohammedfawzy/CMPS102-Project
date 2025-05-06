@@ -17,7 +17,9 @@ bool CTriangle::IsPointInsideFig(int x, int y)
 
 void CTriangle::Draw(Output* pOut) const
 {
-	pOut->DrawTri(P1, P2, P3, FigGfxInfo, Selected);
+	GfxInfo gfx = FigGfxInfo;
+	gfx.FillClr = IsGreyed ? GREY : FigGfxInfo.FillClr;
+	pOut->DrawTri(P1, P2, P3, gfx, Selected);
 }
 
 void CTriangle::Rotate(bool IsClock)
@@ -62,3 +64,8 @@ void CTriangle::Load(ifstream& in)
 	FigGfxInfo.FillClr = color(r, g, b);
 }
 
+
+CFigure* CTriangle::Clone()
+{
+	return new CTriangle(*this);
+}

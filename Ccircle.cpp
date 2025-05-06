@@ -20,7 +20,9 @@ bool CCircle::IsPointInsideFig(int x, int y)
 
 void CCircle::Draw(Output* pOut) const
 {
-	pOut->DrawCircle(Center, Radius, FigGfxInfo, Selected);
+	GfxInfo gfx = FigGfxInfo;
+	gfx.FillClr = IsGreyed ? GREY : FigGfxInfo.FillClr;
+	pOut->DrawCircle(Center, Radius, gfx, Selected);
 }
 
 void CCircle::Rotate(bool IsClock) {}
@@ -55,3 +57,7 @@ void CCircle::Load(ifstream& in)
 	FigGfxInfo.FillClr = color(r, g, b);
 }
 
+CFigure* CCircle::Clone()
+{
+	return new CCircle(*this);
+}

@@ -7,11 +7,19 @@
 #include "RotateAction.h"
 #include "AddHexagonAction.h"
 #include "CopyAction.h"
+#include "DeleteAction.h"
 #include "SwapAction.h"
 #include"SaveGraph.h"
 #include"LoadGraph.h"
 #include"CFigure.h"
 #include <sstream>
+#include "SwitchToPlayModeAction.h"
+#include "SwitchToDrawAction.h"
+#include "MatchingPairsAction.h"
+#include "CutAction.h"
+#include "PasteAction.h"
+#include "ExitAction.h"
+#include "ClearAllAction.h"
 
 
 //Constructor
@@ -24,6 +32,8 @@ ApplicationManager::ApplicationManager()
 	FigCount = 0;
 	SelectedFigsCount = 0;
 	lastID = 0;
+	Score = 0;
+	Clipboard = nullptr;
 		
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
@@ -84,15 +94,40 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case SAVE_GRAPH:
 			pAct = new SaveGraph(this);
+		case PLAY_MISSING_PAIRS:
+			pAct = new MatchingPairsAction(this);
 			break;
 	
 		case LOAD_GRAPH:
 			pAct = new LoadGraph(this);
 			break;
 
+		case DEL:
+			pAct = new DeleteAction(this);
+			break;
+
+		case CUT:
+			pAct = new CutAction(this);
+			break;
+
+		case PASTE:
+			pAct = new PasteAction(this);
+			break;
+
+		case TO_PLAY:
+			pAct = new SwitchToPlayModeAction(this);
+			break;
+
+		case TO_DRAW:
+			pAct = new SwitchToDrawAction(this);
+			break;
+
+		case CLEAR:
+			pAct = new ClearAllAction(this);
+			break;
+
 		case EXIT:
-			///create ExitAction here
-			
+			pAct = new ExitAction(this);
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no action
@@ -213,9 +248,82 @@ CFigure** ApplicationManager::GetSelectedFigs()
 	return SelectedFigs;
 }
 
-void ApplicationManager::MoveSelectedToClipboard()
+void ApplicationManager::MoveSelectedToClipboard(bool isCut)
 {
+	if (Clipboard != nullptr)
+	{
+		Clipboard->setGreyColor(false);
+
+		if (isClipboardCut)
+			delete Clipboard;
+	}
+
+	isClipboardCut = isCut;
 	Clipboard = SelectedFigs[0];
+	DeselectFigure(Clipboard);
+	Clipboard->setGreyColor(isCut);
+}
+
+
+void ApplicationManager::PasteFromClipboard(Point newCent)
+{
+	CFigure* newfig = Clipboard->Clone();
+	newfig->MoveTo(newCent);
+	AddFigure(newfig);
+
+	if (isClipboardCut) 
+	{
+		newfig->setGreyColor(false);
+		deleteFigure(Clipboard, false);
+	}
+}
+
+void ApplicationManager::ClearAll()
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		deleteFigure(FigList[i], true);
+	}
+	FigCount = 0;
+	ClearSelection();
+	Clipboard = nullptr;
+	isClipboardCut = false;
+}
+
+void ApplicationManager::deleteFigure(CFigure *ptr, bool deAllocate)
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		if (FigList[i] == ptr) {
+			FigList[i] = NULL;
+			for (int j = i; j < FigCount - 1 ; j++)
+			{
+				FigList[j] = FigList[j + 1];
+			}
+			FigCount--;
+		}
+	}
+
+	for (int i = 0; i < SelectedFigsCount; i++)
+	{
+		if (SelectedFigs[i] == ptr) {
+			SelectedFigs[i] = NULL;
+			for (int j = i; j < SelectedFigsCount - 1; j++)
+			{
+				SelectedFigs[j] = SelectedFigs[j + 1];
+			}
+			SelectedFigsCount--;
+		}
+	}
+	if (deAllocate)
+		delete ptr;
+}
+void ApplicationManager::deleteSelectedFigs()
+{
+	for (int i = 0; i < SelectedFigsCount; i++)
+	{
+		deleteFigure(SelectedFigs[i], true);
+	}
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the input

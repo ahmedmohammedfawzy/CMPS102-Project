@@ -10,6 +10,7 @@ class CFigure
 protected:
 	int ID;		//Each figure has an ID
 	bool Selected;	//true if the figure is selected.
+	bool IsGreyed;
 	GfxInfo FigGfxInfo;	//Figure graphis info	
 	/// Add more parameters if needed.
 
@@ -23,17 +24,20 @@ public:
 	
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
-
+	color GetFillClr();
 	virtual bool IsPointInsideFig(int x, int y) = 0;
 	virtual void Rotate(bool IsClock) = 0;
 	virtual bool CanRotate() = 0;
 	virtual void MoveTo(Point newCenter) = 0;
 	virtual Point GetCenter() = 0;
-
 	int getID();
 	void setID(int id);
 	virtual string SaveInfo()=0;
 	virtual void Load(ifstream& file)=0;
+	virtual CFigure* Clone() = 0;
+
+	void setGreyColor(bool isGrey);
+
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 

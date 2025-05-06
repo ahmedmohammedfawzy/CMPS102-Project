@@ -28,7 +28,9 @@ bool CSquare::IsPointInsideFig(int x, int y)
 
 void CSquare::Draw(Output* pOut) const
 {
-	pOut->DrawRect(Corner1, Corner2, FigGfxInfo, Selected);
+	GfxInfo gfx = FigGfxInfo;
+	gfx.FillClr = IsGreyed ? GREY : FigGfxInfo.FillClr;
+	pOut->DrawRect(Corner1, Corner2, gfx, Selected);
 }
 
 void CSquare::Rotate(bool IsClock)
@@ -64,4 +66,9 @@ void CSquare::Load(ifstream& in)
 	int r, g, b;
 	in >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> r >> g >> b;
 	FigGfxInfo.FillClr = color(r, g, b);
+}
+
+CFigure* CSquare::Clone()
+{
+	return new CSquare(*this);
 }

@@ -5,8 +5,8 @@
 
 //This file contains some global constants and definitions to be used in the project.
 
-const int HEXAGON_SIZE = 200;
-const int SQUARE_SIZE = 200;
+const int HEXAGON_SIZE = 100;
+const int SQUARE_SIZE = 125;
 
 enum ActionType //The actions supported (you can add more if needed)
 {

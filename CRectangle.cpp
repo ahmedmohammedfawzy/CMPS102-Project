@@ -21,8 +21,9 @@ bool CRectangle::IsPointInsideFig(int x, int y)
 
 void CRectangle::Draw(Output* pOut) const
 {
-	//Call Output::DrawRect to draw a rectangle on the screen	
-	pOut->DrawRect(Corner1, Corner2, FigGfxInfo, Selected);
+	GfxInfo gfx = FigGfxInfo;
+	gfx.FillClr = IsGreyed ? GREY : FigGfxInfo.FillClr;
+	pOut->DrawRect(Corner1, Corner2, gfx, Selected);
 }
 
 void CRectangle::Rotate(bool IsClock)
@@ -66,4 +67,9 @@ void CRectangle::Load(ifstream& in)
 }
 
 
+
+CFigure* CRectangle::Clone()
+{
+	return new CRectangle(*this);
+}
 

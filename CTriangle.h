@@ -16,5 +16,6 @@ public:
 	Point GetCenter() override;
 	string SaveInfo() override;
 	void Load(ifstream& file) override;
+	CFigure* Clone() override;
 };
 
