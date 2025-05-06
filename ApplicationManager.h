@@ -25,6 +25,8 @@ private:
 	CFigure* Clipboard;  //Pointer to copied/cut figure
 	bool isClipboardCut;
 
+	int Score;
+
 public:	
 	ApplicationManager(); 
 	~ApplicationManager();
@@ -56,7 +58,6 @@ public:
 	CFigure** GetSelectedFigs();
 	void MoveSelectedToClipboard(bool isCut);
 	void PasteFromClipboard(Point);
-
 };
 
 #endif

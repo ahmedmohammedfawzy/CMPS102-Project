@@ -23,8 +23,13 @@ void CFigure::ChngFillClr(color Fclr)
 	FigGfxInfo.FillClr = Fclr; 
 }
 
+color CFigure::GetFillClr()
+{
+	return FigGfxInfo.FillClr;
+}
 void CFigure::setGreyColor(bool isGrey)
 {
 	IsGreyed = isGrey;
+
 }
 

@@ -9,7 +9,7 @@ int main()
 	ApplicationManager AppManager;
 
 	do
-	{		
+	{
 		//Read user action
 		ActType = AppManager.GetUserAction();
 
@@ -17,7 +17,7 @@ int main()
 		AppManager.ExecuteAction(ActType);
 
 		//Update the interface
-		AppManager.UpdateInterface();	
+		AppManager.UpdateInterface();
 
 	} while(ActType != EXIT);
 	

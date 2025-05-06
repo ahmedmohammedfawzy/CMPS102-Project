@@ -10,6 +10,7 @@
 #include "DeleteAction.h"
 #include "SwapAction.h"
 #include "SwitchToPlayModeAction.h"
+#include "MatchingPairsAction.h"
 #include "CutAction.h"
 #include "PasteAction.h"
 
@@ -23,6 +24,7 @@ ApplicationManager::ApplicationManager()
 	
 	FigCount = 0;
 	SelectedFigsCount = 0;
+	Score = 0;
 	Clipboard = nullptr;
 		
 	//Create an array of figure pointers and set them to NULL		
@@ -81,6 +83,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case COPY:
 			pAct = new CopyAction(this);
 			break;
+
+		case PLAY_MISSING_PAIRS:
+			pAct = new MatchingPairsAction(this);
+			break;
+	
 
 		case DEL:
 			pAct = new DeleteAction(this);
@@ -231,6 +238,7 @@ void ApplicationManager::MoveSelectedToClipboard(bool isCut)
 	DeselectFigure(Clipboard);
 	Clipboard->setGreyColor(isCut);
 }
+
 
 void ApplicationManager::PasteFromClipboard(Point newCent)
 {
