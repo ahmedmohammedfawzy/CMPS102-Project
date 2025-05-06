@@ -1,12 +1,10 @@
-#ifndef CRECT_H
-#define CRECT_H
-
+#pragma once
 #include "CFigure.h"
 
 class CRectangle : public CFigure
 {
 private:
-	Point Corner1;	
+	Point Corner1;
 	Point Corner2;
 public:
 	CRectangle(Point , Point, GfxInfo FigureGfxInfo );
@@ -17,6 +15,5 @@ public:
 	void MoveTo(Point newCenter) override;
 	Point GetCenter() override;
 	string SaveInfo() override;
+	void Load(ifstream& file) override;
 };
-
-#endif

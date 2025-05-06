@@ -33,6 +33,7 @@ public:
 	int getID();
 	void setID(int id);
 	virtual string SaveInfo()=0;
+	virtual void Load(ifstream& file)=0;
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 

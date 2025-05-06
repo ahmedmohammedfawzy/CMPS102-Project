@@ -54,7 +54,6 @@ public:
 	CFigure** GetSelectedFigs();
 	void MoveSelectedToClipboard();
 	string SaveInfo();
-
 };
 
 #endif

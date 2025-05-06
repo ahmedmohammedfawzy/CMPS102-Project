@@ -23,6 +23,8 @@ void SaveGraph::ReadActionParameters()
 void SaveGraph:: Execute()
 {
 	ReadActionParameters();
+    Output* pOut = pManager->GetOutput();
+
 	string str = pManager->SaveInfo();
 
     ofstream outFile(FileName);
@@ -31,9 +33,10 @@ void SaveGraph:: Execute()
     if (outFile.is_open()) {
         outFile << str;
         outFile.close(); // Always close the file when done
+        pOut->PrintMessage("File save successfully");
     }
     else {
-        cout << "Failed to open the file." << endl;
+        pOut->PrintMessage("Failed to open the file.");
     }
 
 };

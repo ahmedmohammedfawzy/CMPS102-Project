@@ -16,5 +16,6 @@ public:
 	void MoveTo(Point newCenter) override;
 	Point GetCenter() override;
 	string SaveInfo() override;
+	void Load(ifstream& file) override;
 };
 

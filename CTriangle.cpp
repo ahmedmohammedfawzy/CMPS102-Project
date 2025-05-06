@@ -1,6 +1,7 @@
 #include "CTriangle.h"
 #include "Helpers.h"
-#include"sstream"
+#include "sstream"
+#include "fstream"
 
 CTriangle::CTriangle(Point p1, Point p2, Point p3, GfxInfo gfx): CFigure(gfx)
 {
@@ -52,5 +53,12 @@ string CTriangle::SaveInfo()
 	
 
 	return info.str();
+}
+
+void CTriangle::Load(ifstream& in)
+{
+	int r, g, b;
+	in >> ID >> P1.x >> P1.y >> P2.x >> P2.y >> P3.x >> P3.y >> r >> g >> b;
+	FigGfxInfo.FillClr = color(r, g, b);
 }
 
