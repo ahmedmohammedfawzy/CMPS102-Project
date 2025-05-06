@@ -4,6 +4,7 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 { 
 	FigGfxInfo = FigureGfxInfo;	//Default status is non-filled.
 	Selected = false;
+	IsGreyed = false;
 }
 
 void CFigure::SetSelected(bool s)
@@ -25,5 +26,10 @@ void CFigure::ChngFillClr(color Fclr)
 color CFigure::GetFillClr()
 {
 	return FigGfxInfo.FillClr;
+}
+void CFigure::setGreyColor(bool isGrey)
+{
+	IsGreyed = isGrey;
+
 }
 

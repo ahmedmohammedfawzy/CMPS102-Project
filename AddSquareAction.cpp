@@ -19,10 +19,10 @@ void AddSquareAction::ReadActionParameters()
 
 	pIn->GetPointClicked(P1.x, P1.y);
 
-	SquareGfxInfo.isFilled = false;
+	SquareGfxInfo.isFilled = true;
 
 	SquareGfxInfo.DrawClr = pOut->getCrntDrawColor();
-	SquareGfxInfo.FillClr = pOut->getCrntFillColor();
+	SquareGfxInfo.FillClr = PromptUserForColor();
 
 	pOut->ClearStatusBar();
 }

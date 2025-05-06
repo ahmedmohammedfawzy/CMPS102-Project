@@ -179,10 +179,13 @@
       <Filter>Action Classes</Filter>
     </ClCompile>
     <ClCompile Include="DeleteAction.cpp">
-	</ClCompile>
-	<ClCompile Include="RotateAction.cpp">
+    </ClCompile>
+    <ClCompile Include="RotateAction.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="SwapAction.cpp" />
+    <ClCompile Include="SwitchToPlayModeAction.cpp" />
+    <ClCompile Include="Action.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -301,11 +304,13 @@
     <ClInclude Include="CopyAction.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
-	<ClInclude Include="DeleteAction.h">
-	</ClInclude>
+    <ClInclude Include="DeleteAction.h">
+    </ClInclude>
     <ClInclude Include="RotateAction.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
+    <ClInclude Include="SwapAction.h" />
+    <ClInclude Include="SwitchToPlayModeAction.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

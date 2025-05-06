@@ -21,10 +21,10 @@ void AddHexagonAction::ReadActionParameters()
 	//Read 1st corner and store in point P1
 	pIn->GetPointClicked(Center.x, Center.y);
 
-	HexagonGfxInfo.isFilled = false;	//default is not filled
+	HexagonGfxInfo.isFilled = true;	//default is not filled
 	//get drawing, filling colors and pen width from the interface
 	HexagonGfxInfo.DrawClr = pOut->getCrntDrawColor();
-	HexagonGfxInfo.FillClr = pOut->getCrntFillColor();
+	HexagonGfxInfo.FillClr = PromptUserForColor();
 
 	pOut->ClearStatusBar();
 
